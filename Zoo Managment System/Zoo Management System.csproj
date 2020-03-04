@@ -93,6 +93,8 @@
     <None Include="Resources\005-X-512.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lion_icon__2__Teb_icon.ico" />
+    <None Include="Resources\pngfuel.com.png" />
     <Content Include="Resources\zoo background.jpg" />
     <None Include="Resources\zoo background1.jpg" />
   </ItemGroup>

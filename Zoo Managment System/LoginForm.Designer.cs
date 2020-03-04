@@ -38,6 +38,7 @@
             this.passlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.userTextBox = new System.Windows.Forms.TextBox();
+            this.testButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -164,6 +165,17 @@
             this.userTextBox.Size = new System.Drawing.Size(220, 35);
             this.userTextBox.TabIndex = 0;
             // 
+            // testButton
+            // 
+            this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.testButton.Location = new System.Drawing.Point(29, 464);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(157, 50);
+            this.testButton.TabIndex = 1;
+            this.testButton.Text = "open admin";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -172,6 +184,7 @@
             this.BackgroundImage = global::Zoo_Managment_System.Properties.Resources.zoo_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(776, 535);
+            this.Controls.Add(this.testButton);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -202,6 +215,7 @@
         private System.Windows.Forms.TextBox passTextBox;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label attemptLabel;
+        private System.Windows.Forms.Button testButton;
     }
 }
 
