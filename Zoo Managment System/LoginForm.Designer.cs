@@ -35,7 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.passTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.passlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.userTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -107,7 +107,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.54593F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.45407F));
             this.tableLayoutPanel1.Controls.Add(this.passTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.passlabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.userTextBox, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 38);
@@ -130,17 +130,17 @@
             this.passTextBox.Size = new System.Drawing.Size(220, 35);
             this.passTextBox.TabIndex = 1;
             // 
-            // label2
+            // passlabel
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 66);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Password";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.passlabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.passlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passlabel.ForeColor = System.Drawing.Color.White;
+            this.passlabel.Location = new System.Drawing.Point(13, 74);
+            this.passlabel.Name = "passlabel";
+            this.passlabel.Size = new System.Drawing.Size(111, 66);
+            this.passlabel.TabIndex = 1;
+            this.passlabel.Text = "Password";
+            this.passlabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -196,7 +196,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label passlabel;
         private System.Windows.Forms.TextBox userTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox passTextBox;
