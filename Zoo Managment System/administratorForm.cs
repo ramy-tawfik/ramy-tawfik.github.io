@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Zoo_Managment_System
 {
-    public partial class Admin : Form
+    public partial class administratorForm : Form
     {
-        public Admin()
+        public administratorForm()
         {
             InitializeComponent();
         }
