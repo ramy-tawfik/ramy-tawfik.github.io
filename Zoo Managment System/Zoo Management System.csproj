@@ -95,6 +95,7 @@
   <ItemGroup>
     <None Include="Resources\lion_icon__2__Teb_icon.ico" />
     <None Include="Resources\pngfuel.com.png" />
+    <None Include="Resources\lionLogo.png" />
     <Content Include="Resources\zoo background.jpg" />
     <None Include="Resources\zoo background1.jpg" />
   </ItemGroup>
