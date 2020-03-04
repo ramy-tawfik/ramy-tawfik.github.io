@@ -50,5 +50,11 @@ namespace Zoo_Managment_System
             //test md5 function
             MessageBox.Show(input, "Caption", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            administratorForm adminForm = new administratorForm();
+            adminForm.Show();
+        }
     }
 }

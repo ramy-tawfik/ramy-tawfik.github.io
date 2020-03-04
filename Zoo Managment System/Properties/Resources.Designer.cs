@@ -73,6 +73,26 @@ namespace Zoo_Managment_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lion_icon__2__Teb_icon {
+            get {
+                object obj = ResourceManager.GetObject("lion_icon__2__Teb_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngfuel_com {
+            get {
+                object obj = ResourceManager.GetObject("pngfuel.com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap zoo_background {
             get {
                 object obj = ResourceManager.GetObject("zoo background", resourceCulture);
