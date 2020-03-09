@@ -30,104 +30,139 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(administratorForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.userTab = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.taskThreeBtn = new System.Windows.Forms.Button();
+            this.taskTwoBtn = new System.Windows.Forms.Button();
+            this.taskOneBtn = new System.Windows.Forms.Button();
+            this.tabPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
-            this.panel1.Controls.Add(this.label1);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-1, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(204, 684);
-            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Controls.Add(this.tabPanel);
+            this.panel2.Name = "panel2";
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.tableLayoutPanel1.Controls.Add(this.taskThreeBtn, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.taskTwoBtn, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.taskOneBtn, 0, 0);
+            this.tableLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // taskThreeBtn
+            // 
+            resources.ApplyResources(this.taskThreeBtn, "taskThreeBtn");
+            this.taskThreeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.taskThreeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.taskThreeBtn.FlatAppearance.BorderSize = 0;
+            this.taskThreeBtn.Name = "taskThreeBtn";
+            this.taskThreeBtn.UseVisualStyleBackColor = false;
+            this.taskThreeBtn.Click += new System.EventHandler(this.taskThreeBtn_Click);
+            // 
+            // taskTwoBtn
+            // 
+            resources.ApplyResources(this.taskTwoBtn, "taskTwoBtn");
+            this.taskTwoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.taskTwoBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.taskTwoBtn.FlatAppearance.BorderSize = 0;
+            this.taskTwoBtn.Name = "taskTwoBtn";
+            this.taskTwoBtn.UseVisualStyleBackColor = false;
+            this.taskTwoBtn.Click += new System.EventHandler(this.taskTwoBtn_Click);
+            // 
+            // taskOneBtn
+            // 
+            resources.ApplyResources(this.taskOneBtn, "taskOneBtn");
+            this.taskOneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.taskOneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.taskOneBtn.FlatAppearance.BorderSize = 0;
+            this.taskOneBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.taskOneBtn.Name = "taskOneBtn";
+            this.taskOneBtn.UseVisualStyleBackColor = false;
+            this.taskOneBtn.Click += new System.EventHandler(this.taskOneBtn_Click);
+            // 
+            // tabPanel
+            // 
+            this.tabPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            resources.ApplyResources(this.tabPanel, "tabPanel");
+            this.tabPanel.Name = "tabPanel";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AllowDrop = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(3, 264);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 413);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Welcome to \r\nZoo Managment System\r\n\r\nAdministrator  Control Panel\r\n\r\n\r\n";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // tabControl1
+            // panel3
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.userTab);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.ItemSize = new System.Drawing.Size(200, 60);
-            this.tabControl1.Location = new System.Drawing.Point(191, -2);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(986, 684);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 1;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label1);
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
             // 
-            // userTab
+            // label2
             // 
-            this.userTab.BackColor = System.Drawing.Color.White;
-            this.userTab.Location = new System.Drawing.Point(4, 64);
-            this.userTab.Name = "userTab";
-            this.userTab.Padding = new System.Windows.Forms.Padding(3);
-            this.userTab.Size = new System.Drawing.Size(978, 616);
-            this.userTab.TabIndex = 0;
-            this.userTab.Text = "Manage Users";
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Name = "label2";
             // 
-            // tabPage2
+            // panel4
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 64);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(978, 616);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Zoo_Managment_System.Properties.Resources.lionLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 247);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Name = "panel4";
             // 
             // administratorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1178, 684);
-            this.Controls.Add(this.tabControl1);
+            this.BackgroundImage = global::Zoo_Managment_System.Properties.Resources.Magnificent_Plain_Wallpaper1;
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1200, 740);
+            this.Controls.Add(this.panel3);
             this.Name = "administratorForm";
-            this.Text = "Zoom Managment Administrator";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.panel1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -136,9 +171,15 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage userTab;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button taskOneBtn;
+        private System.Windows.Forms.Button taskThreeBtn;
+        private System.Windows.Forms.Button taskTwoBtn;
+        private System.Windows.Forms.Panel tabPanel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel4;
     }
 }
