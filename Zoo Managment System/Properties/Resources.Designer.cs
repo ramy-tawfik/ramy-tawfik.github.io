@@ -63,29 +63,39 @@ namespace Zoo_Managment_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _005_X_512 {
-            get {
-                object obj = ResourceManager.GetObject("005-X-512", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap lion_icon__2__Teb_icon {
-            get {
-                object obj = ResourceManager.GetObject("lion_icon__2__Teb_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap lionLogo {
             get {
                 object obj = ResourceManager.GetObject("lionLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Magnificent_Plain_Wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("Magnificent-Plain-Wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Magnificent_Plain_Wallpaper1 {
+            get {
+                object obj = ResourceManager.GetObject("Magnificent-Plain-Wallpaper1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Magnificent_Plain_Wallpaper2 {
+            get {
+                object obj = ResourceManager.GetObject("Magnificent-Plain-Wallpaper2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +113,9 @@ namespace Zoo_Managment_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zoo_background {
+        internal static System.Drawing.Bitmap ZooLogo {
             get {
-                object obj = ResourceManager.GetObject("zoo background", resourceCulture);
+                object obj = ResourceManager.GetObject("ZooLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
