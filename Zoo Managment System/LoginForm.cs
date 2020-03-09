@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -36,7 +37,45 @@ namespace Zoo_Managment_System
             if (userTextBox.Text.Length > 0 && passTextBox.Text.Length > 0)
             {
                 attemptCounter++;
-                Showbox(CalculateMD5Hash(passTextBox.Text));
+                //Showbox(CalculateMD5Hash(passTextBox.Text));
+                string connetionString = null;
+                MySqlConnection cnn;
+                connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
+                cnn = new MySqlConnection(connetionString);
+
+                try
+                {
+                    cnn.Open();
+                    MessageBox.Show("Connection opend");
+
+                    MySqlCommand command;
+                    MySqlDataReader mdr;
+                    string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Users WHERE username='ramy'";
+                    command = new MySqlCommand(selectQuery, cnn);
+                    mdr = command.ExecuteReader();
+                    if (mdr.Read())
+                    {
+
+                        MessageBox.Show(mdr.GetString("username") + mdr.GetString("password"));
+
+                    }
+
+
+
+
+                    cnn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    
+                }
+
+
+
+
+
+
             }
             else
             {
