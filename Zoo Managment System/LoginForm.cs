@@ -8,11 +8,12 @@ namespace Zoo_Managment_System
 {
     public partial class Login : Form
     {
-        private static int attemptCounter = 0;
+        private static int attemptCounter ;
 
         public Login()
         {
             InitializeComponent();
+            attemptCounter = 3;
         }
 
         //function to Convert the password using a message digest five (MD5) hash
@@ -34,53 +35,82 @@ namespace Zoo_Managment_System
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (userTextBox.Text.Length > 0 && passTextBox.Text.Length > 0)
+            string userName = userTextBox.Text;
+            string pass = CalculateMD5Hash(passTextBox.Text);
+            string message = null;
+
+            if (attemptCounter > 0)
             {
-                attemptCounter++;
-                //Showbox(CalculateMD5Hash(passTextBox.Text));
-                string connetionString = null;
-                MySqlConnection cnn;
-                connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
-                cnn = new MySqlConnection(connetionString);
-
-                try
+                if (userTextBox.Text.Length > 0 && passTextBox.Text.Length > 0)
                 {
-                    cnn.Open();
-                    MessageBox.Show("Connection opend");
+                                    
 
-                    MySqlCommand command;
-                    MySqlDataReader mdr;
-                    string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Users WHERE username='ramy'";
-                    command = new MySqlCommand(selectQuery, cnn);
-                    mdr = command.ExecuteReader();
-                    if (mdr.Read())
+                    string connetionString = null;
+                    MySqlConnection cnn;
+                    connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
+                    cnn = new MySqlConnection(connetionString);
+
+                    try
                     {
+                        MessageBox.Show("Connection opend");
+                        MySqlCommand command;
+                        MySqlDataReader reader;
+                        string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Users Where username =@userName AND password =@pass";
+                        command = new MySqlCommand(selectQuery, cnn);
 
-                        MessageBox.Show(mdr.GetString("username") + mdr.GetString("password"));
+                        command.Parameters.Add("@userName", MySqlDbType.Text);
+                        command.Parameters["@userName"].Value = userName;
 
+                        command.Parameters.Add("@pass", MySqlDbType.Text);
+                        command.Parameters["@pass"].Value = pass;
+
+                        cnn.Open();
+                        reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            User user = new User();
+                            user.FirstName = reader.GetString("First_Name");
+                            user.LasttName = reader.GetString("Last_Name");
+                            if (reader.GetString("Role").Equals("admin"))
+                            {
+                                user.Role = userRole.Admin;
+                            }
+                            else
+                            {
+                                user.Role = userRole.ZooKeeper;
+                            }
+
+                            message += "First Name : " + user.FirstName + "\t" +
+                                "Last Name : " + user.LasttName + "\t" +
+                                "Role : " + user.Role + "\n";
+                            MessageBox.Show(message);
+
+                            openAdminForm(user);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong Username And/Or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            attemptCounter--;
+                            RemainAttemptLabel.Text = "Attempts Left : " + attemptCounter.ToString();
+                        }
+
+                        reader.Close();
+                        cnn.Close();
                     }
-
-
-
-
-                    cnn.Close();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.ToString());
-                    
-                }
-
-
-
-
-
-
+                    MessageBox.Show("Username and Password can not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } 
             }
-            else
-            {
-                MessageBox.Show("Username and Password can not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            else {
+                MessageBox.Show("No More Attempts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -90,10 +120,33 @@ namespace Zoo_Managment_System
             MessageBox.Show(input, "Caption", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
+        private void openAdminForm(User user)
+        {
+            administratorForm adminForm = new administratorForm(user);
+            this.Hide();
+            //adminForm.Show();
+            adminForm.ShowDialog();
+            this.Close();
+
+        }
         private void testButton_Click(object sender, EventArgs e)
         {
-            administratorForm adminForm = new administratorForm();
-            adminForm.Show();
+            User user = new User();
+            administratorForm adminForm = new administratorForm(user);
+            this.Hide();
+            //adminForm.Show();
+            adminForm.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            User user = new User();
+            ZooKeeperForm zooKeeperForm = new ZooKeeperForm(user);
+            this.Hide();
+            zooKeeperForm.ShowDialog();
+            this.Close();
         }
     }
 }

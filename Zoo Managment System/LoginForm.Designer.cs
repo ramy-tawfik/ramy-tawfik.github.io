@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.attemptLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.testButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -38,9 +39,10 @@
             this.passlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.userTextBox = new System.Windows.Forms.TextBox();
-            this.testButton = new System.Windows.Forms.Button();
+            this.attemptLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.RemainAttemptLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -55,6 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.testButton);
             this.panel1.Controls.Add(this.loginButton);
             this.panel1.Controls.Add(this.groupBox1);
@@ -65,18 +68,29 @@
             this.panel1.Size = new System.Drawing.Size(545, 546);
             this.panel1.TabIndex = 0;
             // 
-            // attemptLabel
+            // button1
             // 
-            this.attemptLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.attemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attemptLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.attemptLabel.Location = new System.Drawing.Point(12, 250);
-            this.attemptLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.attemptLabel.Name = "attemptLabel";
-            this.attemptLabel.Size = new System.Drawing.Size(208, 286);
-            this.attemptLabel.TabIndex = 2;
-            this.attemptLabel.Text = "Please be advised that you have 3 attempts only to login";
-            this.attemptLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(241, 444);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(157, 50);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "open ZooKeeper";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // testButton
+            // 
+            this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.testButton.Location = new System.Drawing.Point(54, 444);
+            this.testButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(157, 50);
+            this.testButton.TabIndex = 1;
+            this.testButton.Text = "open admin";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
             // loginButton
             // 
@@ -173,22 +187,24 @@
             this.userTextBox.Size = new System.Drawing.Size(220, 35);
             this.userTextBox.TabIndex = 0;
             // 
-            // testButton
+            // attemptLabel
             // 
-            this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.testButton.Location = new System.Drawing.Point(54, 444);
-            this.testButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(157, 50);
-            this.testButton.TabIndex = 1;
-            this.testButton.Text = "open admin";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            this.attemptLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.attemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attemptLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.attemptLabel.Location = new System.Drawing.Point(12, 250);
+            this.attemptLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.attemptLabel.Name = "attemptLabel";
+            this.attemptLabel.Size = new System.Drawing.Size(208, 286);
+            this.attemptLabel.TabIndex = 2;
+            this.attemptLabel.Text = "Please be advised that you have 3 attempts only to login";
+            this.attemptLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.RemainAttemptLabel);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.attemptLabel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -209,6 +225,20 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // RemainAttemptLabel
+            // 
+            this.RemainAttemptLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.RemainAttemptLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemainAttemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemainAttemptLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.RemainAttemptLabel.Location = new System.Drawing.Point(0, 500);
+            this.RemainAttemptLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RemainAttemptLabel.Name = "RemainAttemptLabel";
+            this.RemainAttemptLabel.Size = new System.Drawing.Size(238, 33);
+            this.RemainAttemptLabel.TabIndex = 5;
+            this.RemainAttemptLabel.Text = "Attempts Left : 3";
+            this.RemainAttemptLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
@@ -255,6 +285,8 @@
         private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label RemainAttemptLabel;
     }
 }
 
