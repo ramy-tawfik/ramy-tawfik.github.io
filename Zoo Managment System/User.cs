@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Zoo_Managment_System
 {
+    // class to save user data
+    //user role enum
     public enum userRole
     {
         Admin,

@@ -8,7 +8,7 @@ namespace Zoo_Managment_System
 {
     public partial class Login : Form
     {
-        private static int attemptCounter ;
+        private static int attemptCounter; // count unsuccefull attempts
 
         public Login()
         {
@@ -30,7 +30,7 @@ namespace Zoo_Managment_System
             {
                 sb.Append(hash[i].ToString("X2"));
             }
-            return sb.ToString();
+            return sb.ToString(); //return hashed string
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -43,8 +43,7 @@ namespace Zoo_Managment_System
             {
                 if (userTextBox.Text.Length > 0 && passTextBox.Text.Length > 0)
                 {
-                                    
-
+                    // connect to database
                     string connetionString = null;
                     MySqlConnection cnn;
                     connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
@@ -52,12 +51,14 @@ namespace Zoo_Managment_System
 
                     try
                     {
+                        /////// Remove Me ///////
                         MessageBox.Show("Connection opend");
+
                         MySqlCommand command;
                         MySqlDataReader reader;
                         string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Users Where username =@userName AND password =@pass";
                         command = new MySqlCommand(selectQuery, cnn);
-
+                        // used parameters for security to avoid sql injection
                         command.Parameters.Add("@userName", MySqlDbType.Text);
                         command.Parameters["@userName"].Value = userName;
 
@@ -67,7 +68,7 @@ namespace Zoo_Managment_System
                         cnn.Open();
                         reader = command.ExecuteReader();
 
-                        if (reader.Read())
+                        if (reader.Read()) // if user found
                         {
                             User user = new User();
                             user.FirstName = reader.GetString("First_Name");
@@ -81,11 +82,12 @@ namespace Zoo_Managment_System
                                 user.Role = userRole.ZooKeeper;
                             }
 
+                            // show message for testing
+                            /////// Remove Me ///////
                             message += "First Name : " + user.FirstName + "\t" +
                                 "Last Name : " + user.LasttName + "\t" +
                                 "Role : " + user.Role + "\n";
-                            MessageBox.Show(message);
-
+                            MessageBox.Show(message, "Message for testing only", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             openAdminForm(user);
                         }
                         else
@@ -95,6 +97,7 @@ namespace Zoo_Managment_System
                             RemainAttemptLabel.Text = "Attempts Left : " + attemptCounter.ToString();
                         }
 
+                        // close reader and connection
                         reader.Close();
                         cnn.Close();
                     }
@@ -106,21 +109,16 @@ namespace Zoo_Managment_System
                 else
                 {
                     MessageBox.Show("Username and Password can not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } 
+                }
             }
-            else {
+            else
+            {
                 MessageBox.Show("No More Attempts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }
 
-        public static void Showbox(string input)
-        {
-            //test md5 function
-            MessageBox.Show(input, "Caption", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-
+        // open Adminstrator Form and pass the loged in user object
         private void openAdminForm(User user)
         {
             administratorForm adminForm = new administratorForm(user);
@@ -128,8 +126,9 @@ namespace Zoo_Managment_System
             //adminForm.Show();
             adminForm.ShowDialog();
             this.Close();
-
         }
+
+        /////// for testing Remove Me ///////
         private void testButton_Click(object sender, EventArgs e)
         {
             User user = new User();
@@ -140,6 +139,7 @@ namespace Zoo_Managment_System
             this.Close();
         }
 
+        /////// for testing Remove Me ///////
         private void button1_Click(object sender, EventArgs e)
         {
             User user = new User();
