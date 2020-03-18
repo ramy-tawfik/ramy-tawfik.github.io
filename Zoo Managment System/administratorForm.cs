@@ -17,9 +17,10 @@ namespace Zoo_Managment_System
             this.loggeduser = user;
             userLabel.Text = user.displayName().ToUpper();
             timeLabel.Text = DateTime.Today.ToString();
-            tabcontrol.SelectedTab = userTab;
+            tabcontrol.SelectedTab = userTab; // set defaults
         }
 
+        // user tab selected
         private void taskOneBtn_Click(object sender, System.EventArgs e)
         {
             tabPanel.Height = taskOneBtn.Height;
@@ -27,12 +28,15 @@ namespace Zoo_Managment_System
             tabcontrol.SelectedTab = userTab;
         }
 
+
+        //  anumals tab selected
         private void taskTwoBtn_Click(object sender, System.EventArgs e)
         {
             tabPanel.Height = taskTwoBtn.Height;
             tabPanel.Top = taskTwoBtn.Top;
             tabcontrol.SelectedTab = animalTab;
 
+            // use connectAnimal only once
             if (!animalLoaded)
             {
                 connectAnimal();
@@ -53,6 +57,7 @@ namespace Zoo_Managment_System
 
         private void connectAnimal()
         {
+            
             string connetionString = null;
             MySqlConnection cnn;
             connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
@@ -71,6 +76,7 @@ namespace Zoo_Managment_System
                 while (mdr.Read())
                 {
                     Animal animal = new Animal();
+                    // set animal class
                     switch (mdr.GetString("Class"))
                     {
                         case "Amphibian":
@@ -92,7 +98,7 @@ namespace Zoo_Managment_System
                         default:
                             break;
                     }
-
+                    // set animal status
                     switch (mdr.GetString("Status"))
                     {
                         case "Normal":
@@ -133,19 +139,19 @@ namespace Zoo_Managment_System
                     animalList.Add(animal);
                     if (progressBar1.Value < progressBar1.Maximum)
                     {
-                        progressBar1.Value += 1;
+                        progressBar1.Value += 1; //fill the progressbar
                     }
                 }
 
                 mdr.Close();
                 cnn.Close();
-                progressBar1.Visible = false;
+                progressBar1.Visible = false; 
                 progressBar1.Value = 0;
 
                 int ampCount = 0, birdCount = 0, mamalCount = 0, reptileCount = 0;
                 int NormalCount = 0, ExtinctCount = 0, VulnerableCount = 0, NearThreatCount = 0, EndangeredCount = 0, LeastConcernCount = 0,
                      CriticallyCount = 0;
-
+                 //count animals by class and by status 
                 foreach (Animal item in animalList)
                 {
                     switch (item.AnimalClass)
@@ -169,7 +175,7 @@ namespace Zoo_Managment_System
                         default:
                             break;
                     }
-
+                    // count animal by status
                     switch (item.Status)
                     {
                         case animalStatus.Normal:
@@ -204,7 +210,7 @@ namespace Zoo_Managment_System
                             break;
                     }
                 }
-
+            // write count values
                 totalLabel.Text = animalList.Count.ToString();
                 amplabel.Text = ampCount.ToString();
                 birdLabel.Text = birdCount.ToString();
@@ -217,6 +223,8 @@ namespace Zoo_Managment_System
                 endlabel.Text = EndangeredCount.ToString();
                 leastlabel.Text = LeastConcernCount.ToString();
                 criticlabel.Text = CriticallyCount.ToString();
+
+                animalLoaded = true;
             }
             catch (Exception ex)
             {

@@ -2,6 +2,7 @@
 
 namespace Zoo_Managment_System
 {
+    // class to save animal data
     public enum animalStatus
     {
         Normal,
