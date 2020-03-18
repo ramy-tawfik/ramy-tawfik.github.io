@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(administratorForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -41,11 +42,68 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tabcontrol = new System.Windows.Forms.TabControl();
+            this.userTab = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.adminNo = new System.Windows.Forms.Label();
+            this.zookeeperNo = new System.Windows.Forms.Label();
+            this.totalLable = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.animalTab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.criticallabel = new System.Windows.Forms.Label();
+            this.criticlabel = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.normlabel = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.extlabel = new System.Windows.Forms.Label();
+            this.vullabel = new System.Windows.Forms.Label();
+            this.nearlabel = new System.Windows.Forms.Label();
+            this.endlabel = new System.Windows.Forms.Label();
+            this.leastlabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.amplabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.birdLabel = new System.Windows.Forms.Label();
+            this.mamalLabel = new System.Windows.Forms.Label();
+            this.reptileLabel = new System.Windows.Forms.Label();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.thirdTab = new System.Windows.Forms.TabPage();
+            this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tabcontrol.SuspendLayout();
+            this.userTab.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.animalTab.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -143,8 +201,342 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel4.Controls.Add(this.progressBar1);
+            this.panel4.Controls.Add(this.timeLabel);
+            this.panel4.Controls.Add(this.userLabel);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            resources.ApplyResources(this.progressBar1, "progressBar1");
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.Value = 20;
+            // 
+            // timeLabel
+            // 
+            resources.ApplyResources(this.timeLabel, "timeLabel");
+            this.timeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.timeLabel.ForeColor = System.Drawing.Color.White;
+            this.timeLabel.Name = "timeLabel";
+            // 
+            // userLabel
+            // 
+            resources.ApplyResources(this.userLabel, "userLabel");
+            this.userLabel.ForeColor = System.Drawing.Color.White;
+            this.userLabel.Name = "userLabel";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // tabcontrol
+            // 
+            resources.ApplyResources(this.tabcontrol, "tabcontrol");
+            this.tabcontrol.Controls.Add(this.userTab);
+            this.tabcontrol.Controls.Add(this.animalTab);
+            this.tabcontrol.Controls.Add(this.thirdTab);
+            this.tabcontrol.Multiline = true;
+            this.tabcontrol.Name = "tabcontrol";
+            this.tabcontrol.SelectedIndex = 0;
+            // 
+            // userTab
+            // 
+            this.userTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.userTab.Controls.Add(this.groupBox1);
+            resources.ApplyResources(this.userTab, "userTab");
+            this.userTab.Name = "userTab";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Gray;
+            this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.adminNo, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.zookeeperNo, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.totalLable, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel2.ForeColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Name = "label5";
+            // 
+            // adminNo
+            // 
+            resources.ApplyResources(this.adminNo, "adminNo");
+            this.adminNo.ForeColor = System.Drawing.Color.White;
+            this.adminNo.Name = "adminNo";
+            // 
+            // zookeeperNo
+            // 
+            resources.ApplyResources(this.zookeeperNo, "zookeeperNo");
+            this.zookeeperNo.ForeColor = System.Drawing.Color.White;
+            this.zookeeperNo.Name = "zookeeperNo";
+            // 
+            // totalLable
+            // 
+            resources.ApplyResources(this.totalLable, "totalLable");
+            this.totalLable.ForeColor = System.Drawing.Color.White;
+            this.totalLable.Name = "totalLable";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Name = "label3";
+            // 
+            // animalTab
+            // 
+            this.animalTab.BackColor = System.Drawing.Color.Silver;
+            this.animalTab.Controls.Add(this.tableLayoutPanel4);
+            resources.ApplyResources(this.animalTab, "animalTab");
+            this.animalTab.Name = "animalTab";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            // 
+            // tableLayoutPanel5
+            // 
+            resources.ApplyResources(this.tableLayoutPanel5, "tableLayoutPanel5");
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(140)))), ((int)(((byte)(157)))));
+            this.tableLayoutPanel5.Controls.Add(this.criticallabel, 0, 7);
+            this.tableLayoutPanel5.Controls.Add(this.criticlabel, 0, 7);
+            this.tableLayoutPanel5.Controls.Add(this.label25, 0, 6);
+            this.tableLayoutPanel5.Controls.Add(this.label9, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label14, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.normlabel, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label16, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label17, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label18, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.label19, 0, 4);
+            this.tableLayoutPanel5.Controls.Add(this.label20, 0, 5);
+            this.tableLayoutPanel5.Controls.Add(this.extlabel, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.vullabel, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.nearlabel, 1, 4);
+            this.tableLayoutPanel5.Controls.Add(this.endlabel, 1, 5);
+            this.tableLayoutPanel5.Controls.Add(this.leastlabel, 1, 6);
+            this.tableLayoutPanel5.ForeColor = System.Drawing.Color.White;
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            // 
+            // criticallabel
+            // 
+            resources.ApplyResources(this.criticallabel, "criticallabel");
+            this.criticallabel.ForeColor = System.Drawing.Color.White;
+            this.criticallabel.Name = "criticallabel";
+            // 
+            // criticlabel
+            // 
+            resources.ApplyResources(this.criticlabel, "criticlabel");
+            this.criticlabel.ForeColor = System.Drawing.Color.White;
+            this.criticlabel.Name = "criticlabel";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(this.label25, "label25");
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Name = "label25";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Name = "label9";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Name = "label14";
+            // 
+            // normlabel
+            // 
+            resources.ApplyResources(this.normlabel, "normlabel");
+            this.normlabel.ForeColor = System.Drawing.Color.White;
+            this.normlabel.Name = "normlabel";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Name = "label16";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Name = "label17";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Name = "label18";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Name = "label19";
+            // 
+            // label20
+            // 
+            resources.ApplyResources(this.label20, "label20");
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Name = "label20";
+            // 
+            // extlabel
+            // 
+            resources.ApplyResources(this.extlabel, "extlabel");
+            this.extlabel.ForeColor = System.Drawing.Color.White;
+            this.extlabel.Name = "extlabel";
+            // 
+            // vullabel
+            // 
+            resources.ApplyResources(this.vullabel, "vullabel");
+            this.vullabel.ForeColor = System.Drawing.Color.White;
+            this.vullabel.Name = "vullabel";
+            // 
+            // nearlabel
+            // 
+            resources.ApplyResources(this.nearlabel, "nearlabel");
+            this.nearlabel.ForeColor = System.Drawing.Color.White;
+            this.nearlabel.Name = "nearlabel";
+            // 
+            // endlabel
+            // 
+            resources.ApplyResources(this.endlabel, "endlabel");
+            this.endlabel.ForeColor = System.Drawing.Color.White;
+            this.endlabel.Name = "endlabel";
+            // 
+            // leastlabel
+            // 
+            resources.ApplyResources(this.leastlabel, "leastlabel");
+            this.leastlabel.ForeColor = System.Drawing.Color.White;
+            this.leastlabel.Name = "leastlabel";
+            // 
+            // tableLayoutPanel3
+            // 
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(140)))), ((int)(((byte)(157)))));
+            this.tableLayoutPanel3.Controls.Add(this.label6, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label8, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.amplabel, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label7, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label10, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.label12, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.label13, 0, 5);
+            this.tableLayoutPanel3.Controls.Add(this.birdLabel, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.mamalLabel, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.reptileLabel, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.totalLabel, 1, 5);
+            this.tableLayoutPanel3.ForeColor = System.Drawing.Color.White;
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Name = "label6";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Name = "label8";
+            // 
+            // amplabel
+            // 
+            resources.ApplyResources(this.amplabel, "amplabel");
+            this.amplabel.ForeColor = System.Drawing.Color.White;
+            this.amplabel.Name = "amplabel";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Name = "label11";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Name = "label7";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Name = "label10";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Name = "label12";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Name = "label13";
+            // 
+            // birdLabel
+            // 
+            resources.ApplyResources(this.birdLabel, "birdLabel");
+            this.birdLabel.ForeColor = System.Drawing.Color.White;
+            this.birdLabel.Name = "birdLabel";
+            // 
+            // mamalLabel
+            // 
+            resources.ApplyResources(this.mamalLabel, "mamalLabel");
+            this.mamalLabel.ForeColor = System.Drawing.Color.White;
+            this.mamalLabel.Name = "mamalLabel";
+            // 
+            // reptileLabel
+            // 
+            resources.ApplyResources(this.reptileLabel, "reptileLabel");
+            this.reptileLabel.ForeColor = System.Drawing.Color.White;
+            this.reptileLabel.Name = "reptileLabel";
+            // 
+            // totalLabel
+            // 
+            resources.ApplyResources(this.totalLabel, "totalLabel");
+            this.totalLabel.ForeColor = System.Drawing.Color.White;
+            this.totalLabel.Name = "totalLabel";
+            // 
+            // thirdTab
+            // 
+            this.thirdTab.BackColor = System.Drawing.Color.Maroon;
+            resources.ApplyResources(this.thirdTab, "thirdTab");
+            this.thirdTab.Name = "thirdTab";
             // 
             // administratorForm
             // 
@@ -152,9 +544,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Zoo_Managment_System.Properties.Resources.Magnificent_Plain_Wallpaper1;
+            this.Controls.Add(this.tabcontrol);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "administratorForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.panel1.ResumeLayout(false);
@@ -163,6 +557,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.tabcontrol.ResumeLayout(false);
+            this.userTab.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.animalTab.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +590,53 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label userLabel;
+        private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TabControl tabcontrol;
+        private System.Windows.Forms.TabPage userTab;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label adminNo;
+        private System.Windows.Forms.Label zookeeperNo;
+        private System.Windows.Forms.Label totalLable;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TabPage animalTab;
+        private System.Windows.Forms.TabPage thirdTab;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label amplabel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label birdLabel;
+        private System.Windows.Forms.Label mamalLabel;
+        private System.Windows.Forms.Label reptileLabel;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label normlabel;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label extlabel;
+        private System.Windows.Forms.Label vullabel;
+        private System.Windows.Forms.Label nearlabel;
+        private System.Windows.Forms.Label criticallabel;
+        private System.Windows.Forms.Label criticlabel;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label endlabel;
+        private System.Windows.Forms.Label leastlabel;
     }
 }
