@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZooKeeperForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,15 +39,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ClassComboBox = new System.Windows.Forms.ComboBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.speciesComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.viewButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.animalClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.species = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.animalClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.species = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -125,18 +127,18 @@
             this.groupBox1.Size = new System.Drawing.Size(679, 96);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "View Animals";
             this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.Controls.Add(this.ClassComboBox, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.statusComboBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.speciesComboBox, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
@@ -146,7 +148,6 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 71);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
@@ -160,14 +161,11 @@
             this.ClassComboBox.IntegralHeight = false;
             this.ClassComboBox.ItemHeight = 20;
             this.ClassComboBox.Items.AddRange(new object[] {
-            "All",
-            "Amphibian",
-            "Bird",
-            "Mammal",
-            "Reptile"});
+            "All"});
             this.ClassComboBox.Location = new System.Drawing.Point(3, 40);
             this.ClassComboBox.Name = "ClassComboBox";
-            this.ClassComboBox.Size = new System.Drawing.Size(137, 28);
+            this.ClassComboBox.Size = new System.Drawing.Size(195, 28);
+            this.ClassComboBox.Sorted = true;
             this.ClassComboBox.TabIndex = 0;
             // 
             // statusComboBox
@@ -184,24 +182,27 @@
             "Extinct in the Wild",
             "Least Concern",
             "Near Threatened",
+            "Normal",
             "Vulnerable"});
-            this.statusComboBox.Location = new System.Drawing.Point(146, 40);
+            this.statusComboBox.Location = new System.Drawing.Point(204, 40);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(181, 28);
+            this.statusComboBox.Size = new System.Drawing.Size(263, 28);
+            this.statusComboBox.Sorted = true;
             this.statusComboBox.TabIndex = 1;
-            this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // speciesComboBox
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ItemHeight = 20;
-            this.comboBox2.Location = new System.Drawing.Point(333, 40);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(337, 28);
-            this.comboBox2.TabIndex = 2;
+            this.speciesComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.speciesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.speciesComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.speciesComboBox.FormattingEnabled = true;
+            this.speciesComboBox.ItemHeight = 20;
+            this.speciesComboBox.Items.AddRange(new object[] {
+            "ALL"});
+            this.speciesComboBox.Location = new System.Drawing.Point(473, 40);
+            this.speciesComboBox.Name = "speciesComboBox";
+            this.speciesComboBox.Size = new System.Drawing.Size(197, 28);
+            this.speciesComboBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -209,7 +210,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 35);
+            this.label1.Size = new System.Drawing.Size(195, 35);
             this.label1.TabIndex = 3;
             this.label1.Text = "Classification";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -219,9 +220,9 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(146, 10);
+            this.label2.Location = new System.Drawing.Point(204, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 25);
+            this.label2.Size = new System.Drawing.Size(263, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Status";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -231,60 +232,48 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(333, 0);
+            this.label3.Location = new System.Drawing.Point(473, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(337, 35);
+            this.label3.Size = new System.Drawing.Size(197, 35);
             this.label3.TabIndex = 5;
             this.label3.Text = "Species";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // button1
+            // viewButton
             // 
-            this.button1.Location = new System.Drawing.Point(900, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 89);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.viewButton.Location = new System.Drawing.Point(900, 129);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(175, 89);
+            this.viewButton.TabIndex = 3;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(126)))), ((int)(((byte)(74)))));
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.animalClass,
-            this.species});
+            this.name,
+            this.species,
+            this.Status});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Info;
             this.dataGridView1.Location = new System.Drawing.Point(248, 333);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(705, 226);
+            this.dataGridView1.Size = new System.Drawing.Size(805, 226);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // animalClass
-            // 
-            this.animalClass.HeaderText = "Class";
-            this.animalClass.MinimumWidth = 8;
-            this.animalClass.Name = "animalClass";
-            this.animalClass.Width = 150;
-            // 
-            // species
-            // 
-            this.species.HeaderText = "Species";
-            this.species.MinimumWidth = 8;
-            this.species.Name = "species";
-            this.species.Width = 150;
             // 
             // panel3
             // 
@@ -295,6 +284,34 @@
             this.panel3.Size = new System.Drawing.Size(892, 41);
             this.panel3.TabIndex = 5;
             // 
+            // animalClass
+            // 
+            this.animalClass.HeaderText = "Class";
+            this.animalClass.MinimumWidth = 8;
+            this.animalClass.Name = "animalClass";
+            this.animalClass.Width = 150;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 8;
+            this.name.Name = "name";
+            this.name.Width = 150;
+            // 
+            // species
+            // 
+            this.species.HeaderText = "Species";
+            this.species.MinimumWidth = 8;
+            this.species.Name = "species";
+            this.species.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 8;
+            this.Status.Name = "Status";
+            this.Status.Width = 150;
+            // 
             // ZooKeeperForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -303,12 +320,13 @@
             this.ClientSize = new System.Drawing.Size(1092, 666);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.viewButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "ZooKeeperForm";
             this.Text = "ZooKeeperForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ZooKeeperForm_FormClosed);
             this.Load += new System.EventHandler(this.ZooKeeperForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -328,7 +346,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox ClassComboBox;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox speciesComboBox;
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
@@ -337,10 +355,12 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button viewButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn animalClass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn species;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn animalClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn species;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }
