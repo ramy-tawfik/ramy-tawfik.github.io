@@ -20,10 +20,9 @@ namespace Zoo_Managment_System
         Bird,
         Mammal,
         Reptile
-
     }
 
-    class Animal
+    internal class Animal
     {
         private int ID;
         private animalClass animalClass;

@@ -8,7 +8,7 @@ namespace Zoo_Managment_System
 {
     public partial class Login : Form
     {
-        private static int attemptCounter; // count unsuccefull attempts
+        private static int attemptCounter; // count unsuccessful attempts
 
         public Login()
         {
@@ -52,13 +52,13 @@ namespace Zoo_Managment_System
                     try
                     {
                         /////// Remove Me ///////
-                        MessageBox.Show("Connection opend");
+                        MessageBox.Show("Connection opened");
 
                         MySqlCommand command;
                         MySqlDataReader reader;
                         string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Users Where username =@userName AND password =@pass";
                         command = new MySqlCommand(selectQuery, cnn);
-                        // used parameters for security to avoid sql injection
+                        // used parameters for security to avoid SQL injection
                         command.Parameters.Add("@userName", MySqlDbType.Text);
                         command.Parameters["@userName"].Value = userName;
 
@@ -72,8 +72,8 @@ namespace Zoo_Managment_System
                         {
                             User user = new User();
                             user.FirstName = reader.GetString("First_Name");
-                            user.LasttName = reader.GetString("Last_Name");
-                            if (reader.GetString("Role").Equals("admin"))
+                            user.LastName = reader.GetString("Last_Name");
+                            if (reader.GetString("Role").Equals("Admin"))
                             {
                                 user.Role = userRole.Admin;
                             }
@@ -85,7 +85,7 @@ namespace Zoo_Managment_System
                             // show message for testing
                             /////// Remove Me ///////
                             message += "First Name : " + user.FirstName + "\t" +
-                                "Last Name : " + user.LasttName + "\t" +
+                                "Last Name : " + user.LastName + "\t" +
                                 "Role : " + user.Role + "\n";
                             MessageBox.Show(message, "Message for testing only", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             openAdminForm(user);
@@ -118,7 +118,7 @@ namespace Zoo_Managment_System
             }
         }
 
-        // open Adminstrator Form and pass the loged in user object
+        // open Administrator Form and pass the logged in user object
         private void openAdminForm(User user)
         {
             administratorForm adminForm = new administratorForm(user);
