@@ -28,6 +28,7 @@ namespace Zoo_Managment_System
         private animalClass animalClass;
         private string animalName;
         private string species;
+        private string gender;
         private animalStatus status;
         private DateTime lastFeed;
 
@@ -37,5 +38,6 @@ namespace Zoo_Managment_System
         public animalStatus Status { get => status; set => status = value; }
         public DateTime LastFeed { get => lastFeed; set => lastFeed = value; }
         public animalClass AnimalClass { get => animalClass; set => animalClass = value; }
+        public string Gender { get => gender; set => gender = value; }
     }
 }

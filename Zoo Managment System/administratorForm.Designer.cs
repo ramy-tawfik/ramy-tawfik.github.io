@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(administratorForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tabPanel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.taskThreeBtn = new System.Windows.Forms.Button();
             this.taskTwoBtn = new System.Windows.Forms.Button();
@@ -100,7 +101,6 @@
             this.reptileLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.thirdTab = new System.Windows.Forms.TabPage();
-            this.tabPanel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -136,6 +136,12 @@
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.tabPanel);
             this.panel2.Name = "panel2";
+            // 
+            // tabPanel2
+            // 
+            this.tabPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            resources.ApplyResources(this.tabPanel2, "tabPanel2");
+            this.tabPanel2.Name = "tabPanel2";
             // 
             // tableLayoutPanel1
             // 
@@ -187,6 +193,7 @@
             // pictureBox1
             // 
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Image = global::Zoo_Managment_System.Properties.Resources.Logo1;
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
@@ -650,12 +657,6 @@
             this.thirdTab.BackColor = System.Drawing.Color.Maroon;
             resources.ApplyResources(this.thirdTab, "thirdTab");
             this.thirdTab.Name = "thirdTab";
-            // 
-            // tabPanel2
-            // 
-            this.tabPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
-            resources.ApplyResources(this.tabPanel2, "tabPanel2");
-            this.tabPanel2.Name = "tabPanel2";
             // 
             // administratorForm
             // 

@@ -15,7 +15,6 @@ namespace Zoo_Managment_System
         public administratorForm(User user)
         {
             InitializeComponent();
-
             this.loggeduser = user;
             userLabel.Text = user.displayName().ToUpper();
             timeLabel.Text = DateTime.Today.ToString();
@@ -31,7 +30,6 @@ namespace Zoo_Managment_System
 
             tabPanel2.Height = taskOneBtn.Height;
             tabPanel2.Top = taskOneBtn.Top;
-            
         }
 
         //  animals tab selected

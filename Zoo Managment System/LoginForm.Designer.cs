@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
@@ -40,6 +39,7 @@
             this.passlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.userTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.attemptLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.RemainAttemptLabel = new System.Windows.Forms.Label();
@@ -69,18 +69,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(545, 553);
             this.panel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 319);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(383, 154);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "For testing \r\nusername: ramy\r\npassword: ramy\r\nopen admin and open zooKeeper butto" +
-    "ns to go\r\nspecific forms directly during developing\r\n\r\n\r\n";
             // 
             // button1
             // 
@@ -201,6 +189,18 @@
             this.userTextBox.Size = new System.Drawing.Size(220, 35);
             this.userTextBox.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(64, 319);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(383, 154);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "For testing \r\nusername: ramy\r\npassword: ramy\r\nopen admin and open zooKeeper butto" +
+    "ns to go\r\nspecific forms directly during developing\r\n\r\n\r\n";
+            // 
             // attemptLabel
             // 
             this.attemptLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -245,7 +245,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Zoo_Managment_System.Properties.Resources.Logo1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";

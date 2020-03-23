@@ -145,9 +145,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ZooLogo.png" />
     <None Include="Resources\lion_icon__2__Teb_icon.ico" />
-    <None Include="Resources\pngfuel.com.png" />
     <None Include="Resources\lionLogo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Magnificent-Plain-Wallpaper1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
