@@ -110,6 +110,8 @@ namespace Zoo_Managment_System
 
                     animal.Species = mdr.GetString("Species");
                     animal.AnimalName = mdr.GetString("Name");
+                    animal.Gender = mdr.GetString("Gender");
+                    
                     // animal.LastFeed = mdr.GetDateTime("LastFeed");
 
                     animalList.Add(animal);
@@ -131,6 +133,8 @@ namespace Zoo_Managment_System
 
         private void viewButton_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
             string classGroup, statusGroup, speciesGroup;
             classGroup = ClassComboBox.SelectedItem.ToString();
             statusGroup = statusComboBox.SelectedItem.ToString();
@@ -138,14 +142,17 @@ namespace Zoo_Managment_System
 
             foreach (Animal item in animalList)
             {
+                
                 // set animal status
-                if (item.AnimalClass.ToString().Equals(classGroup)
-                    && item.Status.ToString().Equals(statusGroup)
-                    && item.Species.ToString().Equals(speciesGroup)
+                 if ((item.AnimalClass.ToString().Equals(classGroup) || classGroup.Equals("All"))
+                    && (item.Status.ToString().Equals(statusGroup)|| statusGroup.Equals("All Statuses"))
+                    && (item.Species.ToString().Equals(speciesGroup) || speciesGroup.Equals("All"))
                     )
                 {
-                    dataGridView1.Rows.Add(item.AnimalClass, item.AnimalName, item.Species, item.Status);
+                    dataGridView1.Rows.Add(item.AnimalClass, item.AnimalName, item.Species,item.Gender, item.Status);
                 }
+
+
             }
         }
 
