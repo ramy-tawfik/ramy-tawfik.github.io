@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Zoo_Managment_System
+namespace Zoo_Management_System
 {
     public partial class Login : Form
     {

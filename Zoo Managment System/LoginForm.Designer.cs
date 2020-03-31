@@ -1,4 +1,4 @@
-﻿namespace Zoo_Managment_System
+﻿namespace Zoo_Management_System
 {
     partial class Login
     {
@@ -196,10 +196,10 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(64, 319);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(383, 154);
-            this.label2.TabIndex = 5;
+            this.label2.Size = new System.Drawing.Size(403, 154);
+            this.label2.TabIndex = 2;
             this.label2.Text = "For testing \r\nusername: ramy\r\npassword: ramy\r\nopen admin and open zooKeeper butto" +
-    "ns to go\r\nspecific forms directly during developing\r\n\r\n\r\n";
+    "ns to go to\r\nspecific forms directly during developing\r\n\r\n\r\n";
             // 
             // attemptLabel
             // 
@@ -273,7 +273,7 @@
             this.MinimumSize = new System.Drawing.Size(798, 591);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Zoo Managment - Login";
+            this.Text = "Zoo Management - Login";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

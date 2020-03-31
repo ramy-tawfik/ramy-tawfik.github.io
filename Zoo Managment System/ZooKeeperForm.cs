@@ -1,13 +1,18 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
+using System.Data;
 using System.Windows.Forms;
 
-namespace Zoo_Managment_System
+namespace Zoo_Management_System
 {
     public partial class ZooKeeperForm : Form
     {
         private ArrayList animalList = new ArrayList();
+        private string connetionString = null;
+        private MySqlConnection cnn;
+        private MySqlDataAdapter dataSelect;
+        private DataSet dataset;
 
         public ZooKeeperForm(User user)
         {
@@ -36,16 +41,13 @@ namespace Zoo_Managment_System
         // load animal database into animalArraylist
         private void animalDatabaseConnect()
         {
-            string connetionString = null;
-            MySqlConnection cnn;
-            connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
-            cnn = new MySqlConnection(connetionString);
             MySqlCommand command;
             MySqlDataReader mdr;
             string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Animal";
             try
             {
-                cnn.Open();
+                openConnection();
+
                 command = new MySqlCommand(selectQuery, cnn);
                 mdr = command.ExecuteReader();
                 while (mdr.Read())
@@ -55,19 +57,19 @@ namespace Zoo_Managment_System
                     switch (mdr.GetString("Class"))
                     {
                         case "Amphibian":
-                            animal.AnimalClass = Zoo_Managment_System.animalClass.Amphibian;
+                            animal.AnimalClass = Zoo_Management_System.animalClass.Amphibian;
                             break;
 
                         case "Bird":
-                            animal.AnimalClass = Zoo_Managment_System.animalClass.Bird;
+                            animal.AnimalClass = Zoo_Management_System.animalClass.Bird;
                             break;
 
                         case "Mammal":
-                            animal.AnimalClass = Zoo_Managment_System.animalClass.Mammal;
+                            animal.AnimalClass = Zoo_Management_System.animalClass.Mammal;
                             break;
 
                         case "Reptile":
-                            animal.AnimalClass = Zoo_Managment_System.animalClass.Reptile;
+                            animal.AnimalClass = Zoo_Management_System.animalClass.Reptile;
                             break;
 
                         default:
@@ -111,12 +113,12 @@ namespace Zoo_Managment_System
                     animal.Species = mdr.GetString("Species");
                     animal.AnimalName = mdr.GetString("Name");
                     animal.Gender = mdr.GetString("Gender");
-                    
+
                     // animal.LastFeed = mdr.GetDateTime("LastFeed");
 
                     animalList.Add(animal);
                 }
-                cnn.Close();
+                closeConnection();
             }
             catch (Exception ex)
             {
@@ -142,17 +144,14 @@ namespace Zoo_Managment_System
 
             foreach (Animal item in animalList)
             {
-                
                 // set animal status
-                 if ((item.AnimalClass.ToString().Equals(classGroup) || classGroup.Equals("All"))
-                    && (item.Status.ToString().Equals(statusGroup)|| statusGroup.Equals("All Statuses"))
-                    && (item.Species.ToString().Equals(speciesGroup) || speciesGroup.Equals("All"))
-                    )
+                if ((item.AnimalClass.ToString().Equals(classGroup) || classGroup.Equals("All"))
+                   && (item.Status.ToString().Equals(statusGroup) || statusGroup.Equals("All Statuses"))
+                   && (item.Species.ToString().Equals(speciesGroup) || speciesGroup.Equals("All"))
+                   )
                 {
-                    dataGridView1.Rows.Add(item.AnimalClass, item.AnimalName, item.Species,item.Gender, item.Status);
+                    dataGridView1.Rows.Add(item.AnimalClass, item.AnimalName, item.Species, item.Gender, item.Status);
                 }
-
-
             }
         }
 
@@ -163,54 +162,139 @@ namespace Zoo_Managment_System
             login.ShowDialog();
             this.Close();
         }
-    }
-}
 
-/*
-string connetionString = null;
-MySqlConnection cnn;
-connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
+        private void openConnection()
+        {
+            connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
             cnn = new MySqlConnection(connetionString);
-MySqlCommand command;
-MySqlDataReader mdr;
-string selectQuery = "";
-
             try
             {
-                MessageBox.Show("Connection opend");
-
-                if (ClassComboBox.SelectedItem.ToString().Equals("All")
-                    && statusComboBox.SelectedItem.ToString().Equals("All Statuses")
-                    && speciesComboBox.SelectedItem.ToString().Equals("ALL"))
-                {
-                    selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Animal";
-                }
-                else
-                {
-                    selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Animal WHERE Class = @animalClass";
-                }
-
-                //selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Animal WHERE Class = @animalClass";
-
-                dataGridView1.Rows.Clear();
-
                 cnn.Open();
-                command = new MySqlCommand(selectQuery, cnn);
-command.Parameters.Add("@animalClass", MySqlDbType.Text);
-                command.Parameters["@animalClass"].Value = ClassComboBox.SelectedItem.ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
 
-                mdr = command.ExecuteReader();
-
-                //command.Parameters["@animalClass"].Value = "";
-                while (mdr.Read())
-                {
-                    dataGridView1.Rows.Add(mdr.GetString("Class"), mdr.GetString("Species"), mdr.GetString("Status"));
-                    // testString += (mdr.GetString("Class") + "\t" + mdr.GetString("Species") +"\n");
-                }
-
+        private void closeConnection()
+        {
+            if (cnn.State == System.Data.ConnectionState.Open)
+            {
                 cnn.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }*/
+        }
+
+        private void classTB_TextChanged(object sender, EventArgs e)
+        {
+            string selectString = "SELECT Class,Name,Species, Status FROM uptodeal_ZooDatabase.Animal WHERE Class LIKE @parm";
+            string parmSt = classTB.Text + "%";
+            searchAnimal(selectString, parmSt);
+        }
+
+        private void nameTB_TextChanged(object sender, EventArgs e)
+        {
+            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Name LIKE @parm";
+            string parmSt = nameTB.Text + "%";
+            searchAnimal(selectString, parmSt);
+        }
+
+
+
+        private void searchAnimal(string selectString, string parmString)
+        {
+            openConnection();
+            dataSelect = new MySqlDataAdapter();
+         
+            MySqlCommand command = new MySqlCommand(selectString, cnn); ;
+            command.Parameters.Add("@parm", MySqlDbType.Text);
+            command.Parameters["@parm"].Value = parmString;
+            dataSelect.SelectCommand = command;
+            dataset = new DataSet();
+            dataSelect.Fill(dataset);
+            dataGridView2.DataSource = dataset.Tables[0];
+
+            closeConnection();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            searchPanel.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            searchPanel.Visible = false;
+        }
+
+        private void classTB_MouseClick(object sender, MouseEventArgs e)
+        {
+            classTB.Text = "";
+            SpeciesTB.Text = "Species";
+            nameTB.Text = "Name";
+            StatusTB.Text = "Status";
+
+        }
+
+        private void nameTB_MouseClick(object sender, MouseEventArgs e)
+        {
+            classTB.Text = "Class";
+            SpeciesTB.Text = "Species";
+            nameTB.Clear();
+            StatusTB.Text = "Status";
+        }
+
+        private void SpeciesTB_MouseClick(object sender, MouseEventArgs e)
+        {
+            classTB.Text = "Class";
+            SpeciesTB.Clear();
+            nameTB.Text = "Name";
+            StatusTB.Text = "Status";
+        }
+        private void SpeciesTB_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            classTB.Text = "Class";
+            SpeciesTB.Clear();
+            nameTB.Text = "Name";
+            StatusTB.Text = "Status";
+        }
+
+        private void searchPanel_Paint(object sender, PaintEventArgs e)
+        {
+            classTB.Text = "Class";
+            SpeciesTB.Text = "Species";
+            nameTB.Text = "Name";
+            StatusTB.Text = "Status";
+            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Class LIKE @parm";
+            string parmSt = "%";
+            searchAnimal(selectString, parmSt);
+        }
+
+        private void SpeciesTB_TextChanged(object sender, EventArgs e)
+        {
+            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Species LIKE @parm";
+            string parmSt = SpeciesTB.Text + "%";
+            searchAnimal(selectString, parmSt);
+        }
+
+        private void StatusTB_MouseClick(object sender, MouseEventArgs e)
+        {
+            classTB.Text = "Class";
+            SpeciesTB.Text = "Species";
+            nameTB.Text = "Name";
+            StatusTB.Clear();
+        }
+
+        private void StatusTB_TextChanged(object sender, EventArgs e)
+        {
+            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Status LIKE @parm";
+            string parmSt = StatusTB.Text + "%";
+            searchAnimal(selectString, parmSt);
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
+}

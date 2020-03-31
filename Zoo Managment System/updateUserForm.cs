@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Zoo_Managment_System
+namespace Zoo_Management_System
 {
     public partial class updateUserForm : Form
     {

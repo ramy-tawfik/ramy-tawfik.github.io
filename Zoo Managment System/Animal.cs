@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Zoo_Managment_System
+namespace Zoo_Management_System
 {
     // class to save animal data
     public enum animalStatus

@@ -1,4 +1,4 @@
-﻿namespace Zoo_Managment_System
+﻿namespace Zoo_Management_System
 {
     partial class administratorForm
     {
@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(administratorForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabPanel2 = new System.Windows.Forms.Panel();
@@ -61,6 +62,7 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -337,6 +339,7 @@
             this.usersDataGridView.AllowUserToDeleteRows = false;
             this.usersDataGridView.AllowUserToOrderColumns = true;
             this.usersDataGridView.AllowUserToResizeRows = false;
+            resources.ApplyResources(this.usersDataGridView, "usersDataGridView");
             this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usersDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(140)))), ((int)(((byte)(157)))));
             this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -344,14 +347,15 @@
             this.ID,
             this.Fname,
             this.lname,
+            this.username,
             this.role,
             this.edit});
-            resources.ApplyResources(this.usersDataGridView, "usersDataGridView");
             this.usersDataGridView.GridColor = System.Drawing.Color.Maroon;
             this.usersDataGridView.MultiSelect = false;
             this.usersDataGridView.Name = "usersDataGridView";
             this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.RowHeadersVisible = false;
+            this.usersDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.usersDataGridView.RowTemplate.Height = 28;
             this.usersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellClick);
             // 
@@ -373,6 +377,12 @@
             this.lname.Name = "lname";
             this.lname.ReadOnly = true;
             // 
+            // username
+            // 
+            resources.ApplyResources(this.username, "username");
+            this.username.Name = "username";
+            this.username.ReadOnly = true;
+            // 
             // role
             // 
             resources.ApplyResources(this.role, "role");
@@ -381,6 +391,10 @@
             // 
             // edit
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Chartreuse;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edit.DefaultCellStyle = dataGridViewCellStyle1;
             this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             resources.ApplyResources(this.edit, "edit");
             this.edit.Name = "edit";
@@ -663,7 +677,6 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::Zoo_Managment_System.Properties.Resources.Magnificent_Plain_Wallpaper1;
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -768,11 +781,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel tabPanel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fname;
         private System.Windows.Forms.DataGridViewTextBoxColumn lname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn role;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
-        private System.Windows.Forms.Panel tabPanel2;
     }
 }
