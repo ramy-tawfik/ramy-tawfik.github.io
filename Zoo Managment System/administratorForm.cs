@@ -3,10 +3,11 @@ using System;
 using System.Collections;
 using System.Windows.Forms;
 
-namespace Zoo_Managment_System
+namespace Zoo_Management_System
 {
     public partial class administratorForm : Form
     {
+       
         private readonly User loggeduser;
         private bool animalLoaded = false;
         private ArrayList animalList = new ArrayList();
@@ -88,6 +89,7 @@ namespace Zoo_Managment_System
                     user.userID = mdr.GetInt32("ID");
                     user.FirstName = mdr.GetString("First_Name");
                     user.LastName = mdr.GetString("Last_Name");
+                    user.Username = mdr.GetString("Username");
                     if (mdr.GetString("Role").Equals("Admin"))
                         user.Role = userRole.Admin;
                     else
@@ -308,7 +310,7 @@ namespace Zoo_Managment_System
                 {
                     zooKeepers += 1;
                 }
-                usersDataGridView.Rows.Add(item.userID, item.FirstName, item.LastName, item.Role);
+                usersDataGridView.Rows.Add(item.userID, item.FirstName, item.LastName,item.Username, item.Role);
 
                 adminNoLb.Text = admins.ToString();
                 zookeeperNo.Text = zooKeepers.ToString();
@@ -318,13 +320,18 @@ namespace Zoo_Managment_System
 
         private void addButton_Click(object sender, EventArgs e)
         {
+
+            this.Opacity = .55;
             addUserForm addUserForm = new addUserForm();
+            
             addUserForm.ShowDialog();
 
             if (addUserForm.validUser)
             {
                 connectUsers();
             }
+            this.Opacity = 1;
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -333,7 +340,7 @@ namespace Zoo_Managment_System
 
         private void usersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex.Equals(4) && e.RowIndex >= 0)
+            if (e.ColumnIndex.Equals(5) && e.RowIndex >= 0)
             {
                 DataGridViewRow row = usersDataGridView.Rows[e.RowIndex];
                 string value1 = row.Cells[0].Value.ToString();
@@ -347,7 +354,6 @@ namespace Zoo_Managment_System
                     }
                 }
 
-                MessageBox.Show(updateUser.FirstName.ToString());
                 updateUserForm updateUserform = new updateUserForm(updateUser);
                 updateUserform.ShowDialog();
                 if (updateUserform.userUpdated)

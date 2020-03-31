@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Zoo_Managment_System.Properties
+namespace Zoo_Management_System.Properties
 {
 
 
