@@ -22,7 +22,7 @@ namespace Zoo_Management_System
         private void button1_Click(object sender, EventArgs e)
         {
             if (fNameTB.Text.Length < 1 || lNameTB.Text.Length < 1 || roleCB.SelectedIndex < 0
-                || usernameTB.Text.Length<4 || passwordTB.Text.Length < 4 )
+                || usernameTB.Text.Length < 4 || passwordTB.Text.Length < 4)
             {
                 MessageBox.Show("Please Fill All Required Data", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -67,13 +67,13 @@ namespace Zoo_Management_System
                     command.Parameters.Add("@password", MySqlDbType.Text);
                     command.Parameters["@password"].Value = Login.CalculateMD5Hash(passwordTB.Text);
 
-                    
+
 
                     cnn.Open();
                     mdr = command.ExecuteReader();
 
                     cnn.Close();
-                    
+
                     //MessageBox.Show(userList.Count.ToString());
                 }
                 catch (Exception ex)
