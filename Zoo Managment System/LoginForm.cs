@@ -92,7 +92,7 @@ namespace Zoo_Management_System
                         }
                         else
                         {
-                            MessageBox.Show("Wrong Username And/Or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Wrong Username And/Or Password.   ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             attemptCounter--;
                             RemainAttemptLabel.Text = "Attempts Left : " + attemptCounter.ToString();
                         }
@@ -108,7 +108,7 @@ namespace Zoo_Management_System
                 }
                 else
                 {
-                    MessageBox.Show("Username and Password can not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Username and Password can not be empty    ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

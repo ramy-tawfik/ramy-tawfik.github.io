@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Data;
 using System.Windows.Forms;
+using Zoo_Managment_System;
 
 namespace Zoo_Management_System
 {
@@ -30,7 +31,7 @@ namespace Zoo_Management_System
 
             foreach (Animal item in animalList)
             {
-                // set animal status
+                // set animal species
                 if (!speciesComboBox.Items.Contains(item.Species))
                 {
                     speciesComboBox.Items.Add(item.Species);
@@ -47,12 +48,14 @@ namespace Zoo_Management_System
             try
             {
                 openConnection();
+                animalList.Clear();
 
                 command = new MySqlCommand(selectQuery, cnn);
                 mdr = command.ExecuteReader();
                 while (mdr.Read())
                 {
                     Animal animal = new Animal();
+                    animal.animalID = mdr.GetInt16("ID");
                     // set animal class
                     switch (mdr.GetString("Class"))
                     {
@@ -110,11 +113,12 @@ namespace Zoo_Management_System
                             break;
                     }
 
+                    // add animal info
                     animal.Species = mdr.GetString("Species");
                     animal.AnimalName = mdr.GetString("Name");
                     animal.Gender = mdr.GetString("Gender");
 
-                    // animal.LastFeed = mdr.GetDateTime("LastFeed");
+                    animal.LastFeed = (DateTime)mdr.GetMySqlDateTime("LastFeed");
 
                     animalList.Add(animal);
                 }
@@ -128,12 +132,18 @@ namespace Zoo_Management_System
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)
         {
+            reset();
+        }
+
+        private void reset()
+        {
             ClassComboBox.SelectedIndex = 0;
             statusComboBox.SelectedIndex = 0;
             speciesComboBox.SelectedIndex = 0;
         }
 
-        private void viewButton_Click(object sender, EventArgs e)
+        // fill dataGridView with data from the array list
+        private void populateData()
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
@@ -145,14 +155,20 @@ namespace Zoo_Management_System
             foreach (Animal item in animalList)
             {
                 // set animal status
+                // fill with all animals info
                 if ((item.AnimalClass.ToString().Equals(classGroup) || classGroup.Equals("All"))
                    && (item.Status.ToString().Equals(statusGroup) || statusGroup.Equals("All Statuses"))
                    && (item.Species.ToString().Equals(speciesGroup) || speciesGroup.Equals("All"))
                    )
                 {
-                    dataGridView1.Rows.Add(item.AnimalClass, item.AnimalName, item.Species, item.Gender, item.Status);
+                    dataGridView1.Rows.Add(item.animalID, item.AnimalClass, item.AnimalName, item.Species, item.Gender, item.LastFeed, item.Status);
                 }
             }
+        }
+
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            populateData();
         }
 
         private void ZooKeeperForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -177,6 +193,7 @@ namespace Zoo_Management_System
             }
         }
 
+        // close database connection
         private void closeConnection()
         {
             if (cnn.State == System.Data.ConnectionState.Open)
@@ -185,30 +202,66 @@ namespace Zoo_Management_System
             }
         }
 
+        // search for animal info by class
         private void classTB_TextChanged(object sender, EventArgs e)
         {
-            string selectString = "SELECT Class,Name,Species, Status FROM uptodeal_ZooDatabase.Animal WHERE Class LIKE @parm";
             string parmSt = classTB.Text + "%";
-            searchAnimal(selectString, parmSt);
+            searchAnimal("Class", parmSt);
         }
 
+        // search for animal info by name
         private void nameTB_TextChanged(object sender, EventArgs e)
         {
-            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Name LIKE @parm";
             string parmSt = nameTB.Text + "%";
-            searchAnimal(selectString, parmSt);
+            searchAnimal("Name", parmSt);
         }
 
+        // search for animal info by status
+        private void StatusTB_TextChanged(object sender, EventArgs e)
+        {
+            string parmSt = StatusTB.Text + "%";
+            searchAnimal("Status", parmSt);
+        }
 
+        // search for animal info by Species
+        private void SpeciesTB_TextChanged(object sender, EventArgs e)
+        {
+            string parmSt = SpeciesTB.Text + "%";
+            searchAnimal("Species", parmSt);
+        }
 
-        private void searchAnimal(string selectString, string parmString)
+        private void searchAnimal(string searchParmValue, string parmString)
         {
             openConnection();
             dataSelect = new MySqlDataAdapter();
-         
-            MySqlCommand command = new MySqlCommand(selectString, cnn); ;
+            string selectString = "";
+            switch (searchParmValue)
+            {
+                case "Class":
+                    selectString = "SELECT * FROM uptodeal_ZooDatabase.Animal WHERE Class LIKE @parm";
+                    break;
+
+                case "Name":
+                    selectString = "SELECT * FROM uptodeal_ZooDatabase.Animal WHERE Name LIKE @parm";
+                    break;
+
+                case "Status":
+                    selectString = "SELECT * FROM uptodeal_ZooDatabase.Animal WHERE Status LIKE @parm";
+                    break;
+
+                case "Species":
+                    selectString = "SELECT * FROM uptodeal_ZooDatabase.Animal WHERE Species LIKE @parm";
+                    break;
+
+                default:
+                    break;
+            }
+
+            // selectString contains parameters
+            MySqlCommand command = new MySqlCommand(selectString, cnn);
             command.Parameters.Add("@parm", MySqlDbType.Text);
             command.Parameters["@parm"].Value = parmString;
+
             dataSelect.SelectCommand = command;
             dataset = new DataSet();
             dataSelect.Fill(dataset);
@@ -217,25 +270,28 @@ namespace Zoo_Management_System
             closeConnection();
         }
 
+        //Switch the view to search tab
         private void button1_Click(object sender, EventArgs e)
         {
-            searchPanel.Visible = true;
+            tabControl1.SelectedIndex = 1;
         }
 
+        // switch view to home tab
         private void button2_Click(object sender, EventArgs e)
         {
-            searchPanel.Visible = false;
+            tabControl1.SelectedIndex = 0;
         }
 
+        // clear the text box text on click
         private void classTB_MouseClick(object sender, MouseEventArgs e)
         {
             classTB.Text = "";
             SpeciesTB.Text = "Species";
             nameTB.Text = "Name";
             StatusTB.Text = "Status";
-
         }
 
+        // clear the text box text on click
         private void nameTB_MouseClick(object sender, MouseEventArgs e)
         {
             classTB.Text = "Class";
@@ -244,19 +300,26 @@ namespace Zoo_Management_System
             StatusTB.Text = "Status";
         }
 
+        // clear the text box text on click
         private void SpeciesTB_MouseClick(object sender, MouseEventArgs e)
         {
             classTB.Text = "Class";
             SpeciesTB.Clear();
             nameTB.Text = "Name";
             StatusTB.Text = "Status";
+            string parmSt = "%";
+            searchAnimal("Class", parmSt);
         }
+
+        // clear the text box text on click
         private void SpeciesTB_MouseClick_1(object sender, MouseEventArgs e)
         {
             classTB.Text = "Class";
             SpeciesTB.Clear();
             nameTB.Text = "Name";
             StatusTB.Text = "Status";
+            string parmSt = "%";
+            searchAnimal("Class", parmSt);
         }
 
         private void searchPanel_Paint(object sender, PaintEventArgs e)
@@ -265,16 +328,8 @@ namespace Zoo_Management_System
             SpeciesTB.Text = "Species";
             nameTB.Text = "Name";
             StatusTB.Text = "Status";
-            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Class LIKE @parm";
             string parmSt = "%";
-            searchAnimal(selectString, parmSt);
-        }
-
-        private void SpeciesTB_TextChanged(object sender, EventArgs e)
-        {
-            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Species LIKE @parm";
-            string parmSt = SpeciesTB.Text + "%";
-            searchAnimal(selectString, parmSt);
+            searchAnimal("Class", parmSt);
         }
 
         private void StatusTB_MouseClick(object sender, MouseEventArgs e)
@@ -283,18 +338,38 @@ namespace Zoo_Management_System
             SpeciesTB.Text = "Species";
             nameTB.Text = "Name";
             StatusTB.Clear();
+            string parmSt = "%";
+            searchAnimal("Class", parmSt);
         }
 
-        private void StatusTB_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string selectString = "SELECT Class,Name,Species,Status FROM uptodeal_ZooDatabase.Animal WHERE Status LIKE @parm";
-            string parmSt = StatusTB.Text + "%";
-            searchAnimal(selectString, parmSt);
+            if (e.ColumnIndex.Equals(7) && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                string value1 = row.Cells[0].Value.ToString();
+                Animal updatedAnimal = new Animal();
+                foreach (Animal item in animalList)
+                {
+                    if (item.animalID == Int16.Parse(value1))
+                    {
+                        updatedAnimal = item;
+                        break;
+                    }
+                }
+                updateAnimalForm updateAnimalForm = new updateAnimalForm(animalList, updatedAnimal);
+                updateAnimalForm.ShowDialog();
+                if (updateAnimalForm.animalUpdated)
+                {
+                    animalDatabaseConnect();
+                    populateData();
+                }
+            }
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            reset();
         }
     }
 }

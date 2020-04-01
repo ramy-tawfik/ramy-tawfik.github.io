@@ -81,6 +81,12 @@
       <DependentUpon>administratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Animal.cs" />
+    <Compile Include="updateAnimalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateAnimalForm.Designer.cs">
+      <DependentUpon>updateAnimalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateAnimalForm.resx">
+      <DependentUpon>updateAnimalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="updateUserForm.resx">
       <DependentUpon>updateUserForm.cs</DependentUpon>

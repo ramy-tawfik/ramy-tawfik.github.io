@@ -22,7 +22,7 @@ namespace Zoo_Management_System
         Reptile
     }
 
-    internal class Animal
+    public class Animal
     {
         private int ID;
         private animalClass animalClass;
@@ -32,7 +32,7 @@ namespace Zoo_Management_System
         private animalStatus status;
         private DateTime lastFeed;
 
-        public int ID1 { get => ID; set => ID = value; }
+        public int animalID { get => ID; set => ID = value; }
         public string AnimalName { get => animalName; set => animalName = value; }
         public string Species { get => species; set => species = value; }
         public animalStatus Status { get => status; set => status = value; }

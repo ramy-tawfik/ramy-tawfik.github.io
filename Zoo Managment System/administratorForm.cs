@@ -7,10 +7,13 @@ namespace Zoo_Management_System
 {
     public partial class administratorForm : Form
     {
-       
         private readonly User loggeduser;
         private bool animalLoaded = false;
+
+        // ArrayList to save animals list retrieved from the Database
         private ArrayList animalList = new ArrayList();
+
+        // ArrayList to save Users list retrieved from the Database
         private ArrayList userList = new ArrayList();
 
         public administratorForm(User user)
@@ -310,7 +313,7 @@ namespace Zoo_Management_System
                 {
                     zooKeepers += 1;
                 }
-                usersDataGridView.Rows.Add(item.userID, item.FirstName, item.LastName,item.Username, item.Role);
+                usersDataGridView.Rows.Add(item.userID, item.FirstName, item.LastName, item.Username, item.Role);
 
                 adminNoLb.Text = admins.ToString();
                 zookeeperNo.Text = zooKeepers.ToString();
@@ -320,10 +323,9 @@ namespace Zoo_Management_System
 
         private void addButton_Click(object sender, EventArgs e)
         {
-
             this.Opacity = .55;
             addUserForm addUserForm = new addUserForm();
-            
+
             addUserForm.ShowDialog();
 
             if (addUserForm.validUser)
@@ -331,7 +333,6 @@ namespace Zoo_Management_System
                 connectUsers();
             }
             this.Opacity = 1;
-
         }
 
         private void button4_Click(object sender, EventArgs e)

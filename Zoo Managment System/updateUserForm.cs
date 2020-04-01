@@ -74,8 +74,7 @@ namespace Zoo_Management_System
                     MessageBox.Show(ex.ToString());
                 }
 
-
-                this.Close(); 
+                this.Close();
             }
         }
     }

@@ -204,7 +204,7 @@
             // attemptLabel
             // 
             this.attemptLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.attemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attemptLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.attemptLabel.Location = new System.Drawing.Point(12, 250);
             this.attemptLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -232,7 +232,7 @@
             // 
             this.RemainAttemptLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.RemainAttemptLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RemainAttemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemainAttemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemainAttemptLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.RemainAttemptLabel.Location = new System.Drawing.Point(0, 500);
             this.RemainAttemptLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -247,8 +247,9 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::Zoo_Managment_System.Properties.Resources.Logo1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
             this.pictureBox1.Size = new System.Drawing.Size(238, 266);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
