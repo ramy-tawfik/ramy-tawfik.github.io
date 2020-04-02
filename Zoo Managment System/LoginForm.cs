@@ -88,7 +88,7 @@ namespace Zoo_Management_System
                                 "Last Name : " + user.LastName + "\t" +
                                 "Role : " + user.Role + "\n";
                             MessageBox.Show(message, "Message for testing only", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            openAdminForm(user);
+                            openUserForm(user);
                         }
                         else
                         {
@@ -119,12 +119,27 @@ namespace Zoo_Management_System
         }
 
         // open Administrator Form and pass the logged in user object
-        private void openAdminForm(User user)
+        private void openUserForm(User user)
         {
-            administratorForm adminForm = new administratorForm(user);
-            this.Hide();
-            //adminForm.Show();
-            adminForm.ShowDialog();
+            if (user.Role == userRole.Admin)
+            {
+                administratorForm adminForm = new administratorForm(user);
+                this.Hide();
+                //adminForm.Show();
+                adminForm.ShowDialog();
+            }
+            else if (user.Role == userRole.ZooKeeper)
+            {
+                ZooKeeperForm zooKeeperForm = new ZooKeeperForm(user);
+                this.Hide();
+                //adminForm.Show();
+                zooKeeperForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("User Role Not Specified   ", "Error ", MessageBoxButtons.OK);
+            }
+
             this.Close();
         }
 
