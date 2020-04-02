@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Windows.Forms;
+using Zoo_Managment_System;
 
 namespace Zoo_Management_System
 {
@@ -103,7 +104,6 @@ namespace Zoo_Management_System
                 }
 
                 cnn.Close();
-                //MessageBox.Show(userList.Count.ToString());
                 populateUsers();
             }
             catch (Exception ex)
@@ -114,172 +114,85 @@ namespace Zoo_Management_System
 
         private void connectAnimal()
         {
-            string connetionString = null;
-            MySqlConnection cnn;
-            connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
-            cnn = new MySqlConnection(connetionString);
+            animalList = AnimalHelper.GetAnimalList();
 
-            try
+            int ampCount = 0, birdCount = 0, mamalCount = 0, reptileCount = 0;
+            int NormalCount = 0, ExtinctCount = 0, VulnerableCount = 0, NearThreatCount = 0, EndangeredCount = 0, LeastConcernCount = 0,
+                 CriticallyCount = 0;
+            //count animals by class and by status
+            foreach (Animal item in animalList)
             {
-                MySqlCommand command;
-                MySqlDataReader mdr;
-                string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Animal";
-                command = new MySqlCommand(selectQuery, cnn);
-
-                cnn.Open();
-                mdr = command.ExecuteReader();
-
-                while (mdr.Read())
+                switch (item.AnimalClass)
                 {
-                    Animal animal = new Animal();
-                    // set animal class
-                    switch (mdr.GetString("Class"))
-                    {
-                        case "Amphibian":
-                            animal.AnimalClass = animalClass.Amphibian;
-                            break;
+                    case animalClass.Amphibian:
+                        ampCount++;
+                        break;
 
-                        case "Bird":
-                            animal.AnimalClass = animalClass.Bird;
-                            break;
+                    case animalClass.Bird:
+                        birdCount++;
+                        break;
 
-                        case "Mammal":
-                            animal.AnimalClass = animalClass.Mammal;
-                            break;
+                    case animalClass.Mammal:
+                        mamalCount++;
+                        break;
 
-                        case "Reptile":
-                            animal.AnimalClass = animalClass.Reptile;
-                            break;
+                    case animalClass.Reptile:
+                        reptileCount++;
+                        break;
 
-                        default:
-                            break;
-                    }
-                    // set animal status
-                    switch (mdr.GetString("Status"))
-                    {
-                        case "Normal":
-                            animal.Status = animalStatus.Normal;
-                            break;
-
-                        case "Extinct In The Wild":
-                            animal.Status = animalStatus.ExtinctInTheWild;
-                            break;
-
-                        case "Vulnerable":
-                            animal.Status = animalStatus.Vulnerable;
-                            break;
-
-                        case "Near Threatened":
-                            animal.Status = animalStatus.NearThreatened;
-                            break;
-
-                        case "Endangered":
-                            animal.Status = animalStatus.Endangered;
-                            break;
-
-                        case "Least Concern":
-                            animal.Status = animalStatus.LeastConcern;
-                            break;
-
-                        case "Critically Endangered":
-                            animal.Status = animalStatus.CriticallyEndangered;
-                            break;
-
-                        default:
-                            break;
-                    }
-
-                    animal.Species = mdr.GetString("Species");
-                    // animal.LastFeed = mdr.GetDateTime("LastFeed");
-
-                    animalList.Add(animal);
+                    default:
+                        break;
                 }
-
-                mdr.Close();
-                cnn.Close();
-
-                int ampCount = 0, birdCount = 0, mamalCount = 0, reptileCount = 0;
-                int NormalCount = 0, ExtinctCount = 0, VulnerableCount = 0, NearThreatCount = 0, EndangeredCount = 0, LeastConcernCount = 0,
-                     CriticallyCount = 0;
-                //count animals by class and by status
-                foreach (Animal item in animalList)
+                // count animal by status
+                switch (item.Status)
                 {
-                    switch (item.AnimalClass)
-                    {
-                        case animalClass.Amphibian:
-                            ampCount++;
-                            break;
+                    case animalStatus.Normal:
+                        NormalCount++;
+                        break;
 
-                        case animalClass.Bird:
-                            birdCount++;
-                            break;
+                    case animalStatus.ExtinctInTheWild:
+                        ExtinctCount++;
+                        break;
 
-                        case animalClass.Mammal:
-                            mamalCount++;
-                            break;
+                    case animalStatus.Vulnerable:
+                        VulnerableCount++;
+                        break;
 
-                        case animalClass.Reptile:
-                            reptileCount++;
-                            break;
+                    case animalStatus.NearThreatened:
+                        NearThreatCount++;
+                        break;
 
-                        default:
-                            break;
-                    }
-                    // count animal by status
-                    switch (item.Status)
-                    {
-                        case animalStatus.Normal:
-                            NormalCount++;
-                            break;
+                    case animalStatus.Endangered:
+                        EndangeredCount++;
+                        break;
 
-                        case animalStatus.ExtinctInTheWild:
-                            ExtinctCount++;
-                            break;
+                    case animalStatus.LeastConcern:
+                        LeastConcernCount++;
+                        break;
 
-                        case animalStatus.Vulnerable:
-                            VulnerableCount++;
-                            break;
+                    case animalStatus.CriticallyEndangered:
+                        CriticallyCount++;
+                        break;
 
-                        case animalStatus.NearThreatened:
-                            NearThreatCount++;
-                            break;
-
-                        case animalStatus.Endangered:
-                            EndangeredCount++;
-                            break;
-
-                        case animalStatus.LeastConcern:
-                            LeastConcernCount++;
-                            break;
-
-                        case animalStatus.CriticallyEndangered:
-                            CriticallyCount++;
-                            break;
-
-                        default:
-                            break;
-                    }
+                    default:
+                        break;
                 }
-                // write count values
-                totalLabel.Text = animalList.Count.ToString();
-                amplabel.Text = ampCount.ToString();
-                birdLabel.Text = birdCount.ToString();
-                mamalLabel.Text = mamalCount.ToString();
-                reptileLabel.Text = reptileCount.ToString();
-                normlabel.Text = NormalCount.ToString();
-                extlabel.Text = ExtinctCount.ToString();
-                vullabel.Text = VulnerableCount.ToString();
-                nearlabel.Text = NearThreatCount.ToString();
-                endlabel.Text = EndangeredCount.ToString();
-                leastlabel.Text = LeastConcernCount.ToString();
-                criticlabel.Text = CriticallyCount.ToString();
+            }
+            // write count values
+            totalLabel.Text = animalList.Count.ToString();
+            amplabel.Text = ampCount.ToString();
+            birdLabel.Text = birdCount.ToString();
+            mamalLabel.Text = mamalCount.ToString();
+            reptileLabel.Text = reptileCount.ToString();
+            normlabel.Text = NormalCount.ToString();
+            extlabel.Text = ExtinctCount.ToString();
+            vullabel.Text = VulnerableCount.ToString();
+            nearlabel.Text = NearThreatCount.ToString();
+            endlabel.Text = EndangeredCount.ToString();
+            leastlabel.Text = LeastConcernCount.ToString();
+            criticlabel.Text = CriticallyCount.ToString();
 
-                animalLoaded = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            animalLoaded = true;
         }
 
         private void administratorForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -360,6 +273,39 @@ namespace Zoo_Management_System
                 if (updateUserform.userUpdated)
                 {
                     connectUsers();
+                }
+            }
+
+            if (e.ColumnIndex.Equals(6) && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = usersDataGridView.Rows[e.RowIndex];
+                int selectedID = (int)row.Cells[0].Value;
+                User updateUser = new User();
+                DialogResult result = MessageBox.Show("Selected User Will be Deleted,  Are you sure?   ", "Delete User", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    string connetionString = null;
+                    MySqlConnection cnn;
+                    connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
+                    cnn = new MySqlConnection(connetionString);
+
+                    try
+                    {
+                        MySqlCommand command;
+                        MySqlDataReader mdr;
+                        string selectQuery = "DELETE FROM uptodeal_ZooDatabase.Users WHERE ID = @ID";
+                        command = new MySqlCommand(selectQuery, cnn);
+                        command.Parameters.Add("@ID", MySqlDbType.Int16);
+                        command.Parameters["@ID"].Value = selectedID;
+                        cnn.Open();
+                        mdr = command.ExecuteReader();
+                        connectUsers();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
         }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(administratorForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabPanel2 = new System.Windows.Forms.Panel();
@@ -65,6 +66,7 @@
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.addButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -103,6 +105,7 @@
             this.reptileLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.thirdTab = new System.Windows.Forms.TabPage();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -337,7 +340,6 @@
             this.usersDataGridView.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.usersDataGridView.AllowUserToAddRows = false;
             this.usersDataGridView.AllowUserToDeleteRows = false;
-            this.usersDataGridView.AllowUserToOrderColumns = true;
             this.usersDataGridView.AllowUserToResizeRows = false;
             resources.ApplyResources(this.usersDataGridView, "usersDataGridView");
             this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -349,7 +351,8 @@
             this.lname,
             this.username,
             this.role,
-            this.edit});
+            this.edit,
+            this.Delete});
             this.usersDataGridView.GridColor = System.Drawing.Color.Maroon;
             this.usersDataGridView.MultiSelect = false;
             this.usersDataGridView.Name = "usersDataGridView";
@@ -361,30 +364,35 @@
             // 
             // ID
             // 
+            this.ID.FillWeight = 78.02143F;
             resources.ApplyResources(this.ID, "ID");
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
             // Fname
             // 
+            this.Fname.FillWeight = 84.26314F;
             resources.ApplyResources(this.Fname, "Fname");
             this.Fname.Name = "Fname";
             this.Fname.ReadOnly = true;
             // 
             // lname
             // 
+            this.lname.FillWeight = 84.26314F;
             resources.ApplyResources(this.lname, "lname");
             this.lname.Name = "lname";
             this.lname.ReadOnly = true;
             // 
             // username
             // 
+            this.username.FillWeight = 84.26314F;
             resources.ApplyResources(this.username, "username");
             this.username.Name = "username";
             this.username.ReadOnly = true;
             // 
             // role
             // 
+            this.role.FillWeight = 84.26314F;
             resources.ApplyResources(this.role, "role");
             this.role.Name = "role";
             this.role.ReadOnly = true;
@@ -395,6 +403,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Chartreuse;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit.DefaultCellStyle = dataGridViewCellStyle1;
+            this.edit.FillWeight = 84.26314F;
             this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             resources.ApplyResources(this.edit, "edit");
             this.edit.Name = "edit";
@@ -403,6 +412,18 @@
             this.edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.edit.Text = "Edit";
             this.edit.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Delete.FillWeight = 89.86742F;
+            resources.ApplyResources(this.Delete, "Delete");
+            this.Delete.Image = global::Zoo_Managment_System.Properties.Resources.delete_copy;
+            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // tableLayoutPanel7
             // 
@@ -672,6 +693,22 @@
             resources.ApplyResources(this.thirdTab, "thirdTab");
             this.thirdTab.Name = "thirdTab";
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewImageColumn1.FillWeight = 89.86742F;
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Image = global::Zoo_Managment_System.Properties.Resources.delete;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // administratorForm
             // 
             resources.ApplyResources(this, "$this");
@@ -782,11 +819,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel tabPanel2;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fname;
         private System.Windows.Forms.DataGridViewTextBoxColumn lname;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn role;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Zoo_Managment_System;
 
@@ -18,7 +19,8 @@ namespace Zoo_Management_System
         public ZooKeeperForm(User user)
         {
             InitializeComponent();
-            animalDatabaseConnect();
+            animalList = AnimalHelper.GetAnimalList();
+            //animalDatabaseConnect();
         }
 
         private void ZooKeeperForm_Load(object sender, EventArgs e)
@@ -40,96 +42,7 @@ namespace Zoo_Management_System
         }
 
         // load animal database into animalArraylist
-        private void animalDatabaseConnect()
-        {
-            MySqlCommand command;
-            MySqlDataReader mdr;
-            string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Animal";
-            try
-            {
-                openConnection();
-                animalList.Clear();
-
-                command = new MySqlCommand(selectQuery, cnn);
-                mdr = command.ExecuteReader();
-                while (mdr.Read())
-                {
-                    Animal animal = new Animal();
-                    animal.animalID = mdr.GetInt16("ID");
-                    // set animal class
-                    switch (mdr.GetString("Class"))
-                    {
-                        case "Amphibian":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Amphibian;
-                            break;
-
-                        case "Bird":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Bird;
-                            break;
-
-                        case "Mammal":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Mammal;
-                            break;
-
-                        case "Reptile":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Reptile;
-                            break;
-
-                        default:
-                            break;
-                    }
-                    // set animal status
-                    switch (mdr.GetString("Status"))
-                    {
-                        case "Normal":
-                            animal.Status = animalStatus.Normal;
-                            break;
-
-                        case "Extinct In The Wild":
-                            animal.Status = animalStatus.ExtinctInTheWild;
-                            break;
-
-                        case "Vulnerable":
-                            animal.Status = animalStatus.Vulnerable;
-                            break;
-
-                        case "Near Threatened":
-                            animal.Status = animalStatus.NearThreatened;
-                            break;
-
-                        case "Endangered":
-                            animal.Status = animalStatus.Endangered;
-                            break;
-
-                        case "Least Concern":
-                            animal.Status = animalStatus.LeastConcern;
-                            break;
-
-                        case "Critically Endangered":
-                            animal.Status = animalStatus.CriticallyEndangered;
-                            break;
-
-                        default:
-                            break;
-                    }
-
-                    // add animal info
-                    animal.Species = mdr.GetString("Species");
-                    animal.AnimalName = mdr.GetString("Name");
-                    animal.Gender = mdr.GetString("Gender");
-
-                    animal.LastFeed = (DateTime)mdr.GetMySqlDateTime("LastFeed");
-
-                    animalList.Add(animal);
-                }
-                closeConnection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
+       
         private void groupBox1_Paint(object sender, PaintEventArgs e)
         {
             reset();
@@ -154,10 +67,10 @@ namespace Zoo_Management_System
 
             foreach (Animal item in animalList)
             {
-                // set animal status
+                // set animal status 
                 // fill with all animals info
                 if ((item.AnimalClass.ToString().Equals(classGroup) || classGroup.Equals("All"))
-                   && (item.Status.ToString().Equals(statusGroup) || statusGroup.Equals("All Statuses"))
+                   && (item.Status.ToString().Equals(Regex.Replace(statusGroup, @"\s", "")) || statusGroup.Equals("All Statuses"))
                    && (item.Species.ToString().Equals(speciesGroup) || speciesGroup.Equals("All"))
                    )
                 {
@@ -361,7 +274,7 @@ namespace Zoo_Management_System
                 updateAnimalForm.ShowDialog();
                 if (updateAnimalForm.animalUpdated)
                 {
-                    animalDatabaseConnect();
+                    animalList = AnimalHelper.GetAnimalList();
                     populateData();
                 }
             }

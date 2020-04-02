@@ -8,7 +8,7 @@ namespace Zoo_Management_System
     {
         public User addedUser = new User();
         public bool validUser = false;
-
+        
         public addUserForm()
         {
             InitializeComponent();
@@ -21,8 +21,12 @@ namespace Zoo_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (fNameTB.Text.Length < 1 || lNameTB.Text.Length < 1 || roleCB.SelectedIndex < 0
-                || usernameTB.Text.Length < 4 || passwordTB.Text.Length < 4)
+            if (usernameTB.Text.Length < 4 || passwordTB.Text.Length < 4)
+            {
+                MessageBox.Show("Username and Password less than 4 characters ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else if (fNameTB.Text.Length < 1 || lNameTB.Text.Length < 1 || roleCB.SelectedIndex < 0 )
             {
                 MessageBox.Show("Please Fill All Required Data", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -38,7 +42,6 @@ namespace Zoo_Management_System
                 {
                     addedUser.Role = userRole.ZooKeeper;
                 }
-
 
                 string connetionString = null;
                 MySqlConnection cnn;
@@ -67,8 +70,6 @@ namespace Zoo_Management_System
                     command.Parameters.Add("@password", MySqlDbType.Text);
                     command.Parameters["@password"].Value = Login.CalculateMD5Hash(passwordTB.Text);
 
-
-
                     cnn.Open();
                     mdr = command.ExecuteReader();
 
@@ -81,9 +82,6 @@ namespace Zoo_Management_System
                     MessageBox.Show(ex.ToString());
                 }
 
-
-
-
                 validUser = true;
                 this.Close();
             }
@@ -91,18 +89,16 @@ namespace Zoo_Management_System
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void fNameTB_TextChanged(object sender, EventArgs e)
         {
-            usernameTB.Text = fNameTB.Text + "." + lNameTB.Text;
+           usernameTB.Text = fNameTB.Text + "." + lNameTB.Text;
         }
 
         private void lNameTB_TextChanged(object sender, EventArgs e)
         {
             usernameTB.Text = fNameTB.Text + "." + lNameTB.Text;
-
         }
     }
 }

@@ -35,15 +35,6 @@ namespace Zoo_Managment_System
                     speciesComboBox.Items.Add(item.Species);
                 }
             }
-            // Populate Status combo box items
-            foreach (Animal item in animalList)
-            {
-                // set animal status
-                if (!statusComboBox.Items.Contains(item.Species))
-                {
-                    statusComboBox.Items.Add(item.Species);
-                }
-            }
 
             NameTB.Text = selectedAnimal.AnimalName;
             lastFeedDTPicker.Value = selectedAnimal.LastFeed;

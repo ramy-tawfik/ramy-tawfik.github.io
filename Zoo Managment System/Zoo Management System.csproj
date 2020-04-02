@@ -81,6 +81,7 @@
       <DependentUpon>administratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Animal.cs" />
+    <Compile Include="AnimalHelper.cs" />
     <Compile Include="updateAnimalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +165,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete copy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
