@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(administratorForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabPanel2 = new System.Windows.Forms.Panel();
@@ -47,7 +48,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.timeLabel = new System.Windows.Forms.Label();
             this.userLabel = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.adminTimer = new System.Windows.Forms.Timer(this.components);
             this.tabcontrol = new System.Windows.Forms.TabControl();
             this.userTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -59,6 +60,10 @@
             this.zookeeperNo = new System.Windows.Forms.Label();
             this.totalLable = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.addButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,11 +72,6 @@
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.addButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.animalTab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -106,6 +106,7 @@
             this.totalLabel = new System.Windows.Forms.Label();
             this.thirdTab = new System.Windows.Forms.TabPage();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -117,8 +118,8 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
             this.animalTab.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -128,9 +129,10 @@
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(17)))), ((int)(((byte)(60)))));
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Name = "panel1";
             // 
             // panel2
@@ -170,10 +172,11 @@
             // 
             // taskTwoBtn
             // 
-            resources.ApplyResources(this.taskTwoBtn, "taskTwoBtn");
             this.taskTwoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.taskTwoBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.taskTwoBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.taskTwoBtn, "taskTwoBtn");
+            this.taskTwoBtn.Image = global::Zoo_Managment_System.Properties.Resources.Statistics_icon;
             this.taskTwoBtn.Name = "taskTwoBtn";
             this.taskTwoBtn.UseVisualStyleBackColor = false;
             this.taskTwoBtn.Click += new System.EventHandler(this.taskTwoBtn_Click);
@@ -182,9 +185,11 @@
             // 
             resources.ApplyResources(this.taskOneBtn, "taskOneBtn");
             this.taskOneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.taskOneBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.taskOneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.taskOneBtn.FlatAppearance.BorderSize = 0;
             this.taskOneBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.taskOneBtn.Image = global::Zoo_Managment_System.Properties.Resources.Users_icon;
             this.taskOneBtn.Name = "taskOneBtn";
             this.taskOneBtn.UseVisualStyleBackColor = false;
             this.taskOneBtn.Click += new System.EventHandler(this.taskOneBtn_Click);
@@ -205,15 +210,15 @@
             // label1
             // 
             this.label1.AllowDrop = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(17)))), ((int)(((byte)(60)))));
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Name = "label1";
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(17)))), ((int)(((byte)(60)))));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             resources.ApplyResources(this.panel3, "panel3");
@@ -227,7 +232,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(17)))), ((int)(((byte)(60)))));
             this.panel4.Controls.Add(this.timeLabel);
             this.panel4.Controls.Add(this.userLabel);
             resources.ApplyResources(this.panel4, "panel4");
@@ -246,17 +251,20 @@
             this.userLabel.ForeColor = System.Drawing.Color.White;
             this.userLabel.Name = "userLabel";
             // 
-            // timer1
+            // adminTimer
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.adminTimer.Enabled = true;
+            this.adminTimer.Interval = 1000;
+            this.adminTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tabcontrol
             // 
             resources.ApplyResources(this.tabcontrol, "tabcontrol");
+            this.tabcontrol.CausesValidation = false;
             this.tabcontrol.Controls.Add(this.userTab);
             this.tabcontrol.Controls.Add(this.animalTab);
             this.tabcontrol.Controls.Add(this.thirdTab);
+            this.tabcontrol.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabcontrol.Multiline = true;
             this.tabcontrol.Name = "tabcontrol";
             this.tabcontrol.SelectedIndex = 0;
@@ -273,8 +281,8 @@
             // 
             resources.ApplyResources(this.tableLayoutPanel6, "tableLayoutPanel6");
             this.tableLayoutPanel6.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.usersDataGridView, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.usersDataGridView, 0, 1);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             // 
             // groupBox1
@@ -335,6 +343,35 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.label3.Name = "label3";
             // 
+            // tableLayoutPanel7
+            // 
+            resources.ApplyResources(this.tableLayoutPanel7, "tableLayoutPanel7");
+            this.tableLayoutPanel7.Controls.Add(this.addButton, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.button2, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.button3, 3, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            // 
+            // addButton
+            // 
+            resources.ApplyResources(this.addButton, "addButton");
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.addButton.Name = "addButton";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // usersDataGridView
             // 
             this.usersDataGridView.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -359,40 +396,42 @@
             this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.RowHeadersVisible = false;
             this.usersDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.usersDataGridView.RowTemplate.Height = 28;
             this.usersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellClick);
             // 
             // ID
             // 
-            this.ID.FillWeight = 78.02143F;
+            this.ID.FillWeight = 40F;
             resources.ApplyResources(this.ID, "ID");
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
             // Fname
             // 
-            this.Fname.FillWeight = 84.26314F;
+            this.Fname.FillWeight = 47.85315F;
             resources.ApplyResources(this.Fname, "Fname");
             this.Fname.Name = "Fname";
             this.Fname.ReadOnly = true;
             // 
             // lname
             // 
-            this.lname.FillWeight = 84.26314F;
+            this.lname.FillWeight = 47.85315F;
             resources.ApplyResources(this.lname, "lname");
             this.lname.Name = "lname";
             this.lname.ReadOnly = true;
             // 
             // username
             // 
-            this.username.FillWeight = 84.26314F;
+            this.username.FillWeight = 47.85315F;
             resources.ApplyResources(this.username, "username");
             this.username.Name = "username";
             this.username.ReadOnly = true;
             // 
             // role
             // 
-            this.role.FillWeight = 84.26314F;
+            this.role.FillWeight = 47.85315F;
             resources.ApplyResources(this.role, "role");
             this.role.Name = "role";
             this.role.ReadOnly = true;
@@ -403,7 +442,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Chartreuse;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit.DefaultCellStyle = dataGridViewCellStyle1;
-            this.edit.FillWeight = 84.26314F;
+            this.edit.FillWeight = 47.85315F;
             this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             resources.ApplyResources(this.edit, "edit");
             this.edit.Name = "edit";
@@ -424,43 +463,6 @@
             this.Delete.ReadOnly = true;
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // tableLayoutPanel7
-            // 
-            resources.ApplyResources(this.tableLayoutPanel7, "tableLayoutPanel7");
-            this.tableLayoutPanel7.Controls.Add(this.addButton, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.button2, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.button3, 3, 0);
-            this.tableLayoutPanel7.Controls.Add(this.button4, 1, 0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            // 
-            // addButton
-            // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
-            resources.ApplyResources(this.addButton, "addButton");
-            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.addButton.Name = "addButton";
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // animalTab
             // 
@@ -689,30 +691,41 @@
             // 
             // thirdTab
             // 
-            this.thirdTab.BackColor = System.Drawing.Color.Maroon;
+            this.thirdTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             resources.ApplyResources(this.thirdTab, "thirdTab");
             this.thirdTab.Name = "thirdTab";
             // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewImageColumn1.FillWeight = 89.86742F;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Image = global::Zoo_Managment_System.Properties.Resources.delete;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn2.FillWeight = 89.86742F;
+            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
+            this.dataGridViewImageColumn2.Image = global::Zoo_Managment_System.Properties.Resources.delete_copy;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // administratorForm
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
@@ -738,8 +751,9 @@
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
             this.animalTab.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
@@ -767,7 +781,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label timeLabel;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer adminTimer;
         private System.Windows.Forms.TabControl tabcontrol;
         private System.Windows.Forms.TabPage userTab;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -817,9 +831,9 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel tabPanel2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fname;
         private System.Windows.Forms.DataGridViewTextBoxColumn lname;

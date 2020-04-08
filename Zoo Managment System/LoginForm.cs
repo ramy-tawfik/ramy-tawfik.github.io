@@ -37,7 +37,6 @@ namespace Zoo_Management_System
         {
             string userName = userTextBox.Text;
             string pass = CalculateMD5Hash(passTextBox.Text);
-            string message = null;
 
             if (attemptCounter > 0)
             {
@@ -51,9 +50,6 @@ namespace Zoo_Management_System
 
                     try
                     {
-                        /////// Remove Me ///////
-                        MessageBox.Show("Connection opened");
-
                         MySqlCommand command;
                         MySqlDataReader reader;
                         string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Users Where username =@userName AND password =@pass";
@@ -82,12 +78,6 @@ namespace Zoo_Management_System
                                 user.Role = userRole.ZooKeeper;
                             }
 
-                            // show message for testing
-                            /////// Remove Me ///////
-                            message += "First Name : " + user.FirstName + "\t" +
-                                "Last Name : " + user.LastName + "\t" +
-                                "Role : " + user.Role + "\n";
-                            MessageBox.Show(message, "Message for testing only", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             openUserForm(user);
                         }
                         else
@@ -161,6 +151,11 @@ namespace Zoo_Management_System
             ZooKeeperForm zooKeeperForm = new ZooKeeperForm(user);
             this.Hide();
             zooKeeperForm.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

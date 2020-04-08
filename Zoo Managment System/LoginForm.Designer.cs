@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.testButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.RemainAttemptLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,6 +60,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.testButton);
             this.panel1.Controls.Add(this.loginButton);
@@ -67,13 +70,25 @@
             this.panel1.Location = new System.Drawing.Point(243, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(545, 553);
+            this.panel1.Size = new System.Drawing.Size(566, 590);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Zoo_Managment_System.Properties.Resources.icons8_close_window;
+            this.pictureBox2.Location = new System.Drawing.Point(508, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 46);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(241, 451);
+            this.button1.Location = new System.Drawing.Point(231, 528);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 50);
@@ -85,7 +100,7 @@
             // testButton
             // 
             this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.testButton.Location = new System.Drawing.Point(54, 451);
+            this.testButton.Location = new System.Drawing.Point(68, 528);
             this.testButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(157, 50);
@@ -100,7 +115,7 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(82)))));
-            this.loginButton.Location = new System.Drawing.Point(68, 269);
+            this.loginButton.Location = new System.Drawing.Point(82, 327);
             this.loginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(398, 56);
@@ -115,7 +130,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.groupBox1.Location = new System.Drawing.Point(54, 32);
+            this.groupBox1.Location = new System.Drawing.Point(68, 90);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -148,11 +163,12 @@
             // 
             this.passTextBox.AllowDrop = true;
             this.passTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passTextBox.Location = new System.Drawing.Point(154, 89);
+            this.passTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passTextBox.Location = new System.Drawing.Point(154, 92);
             this.passTextBox.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.passTextBox.Name = "passTextBox";
             this.passTextBox.PasswordChar = '*';
-            this.passTextBox.Size = new System.Drawing.Size(220, 35);
+            this.passTextBox.Size = new System.Drawing.Size(220, 30);
             this.passTextBox.TabIndex = 1;
             // 
             // passlabel
@@ -183,10 +199,11 @@
             // 
             this.userTextBox.AllowDrop = true;
             this.userTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.userTextBox.Location = new System.Drawing.Point(154, 24);
+            this.userTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTextBox.Location = new System.Drawing.Point(154, 26);
             this.userTextBox.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.userTextBox.Name = "userTextBox";
-            this.userTextBox.Size = new System.Drawing.Size(220, 35);
+            this.userTextBox.Size = new System.Drawing.Size(220, 30);
             this.userTextBox.TabIndex = 0;
             // 
             // label2
@@ -194,7 +211,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 331);
+            this.label2.Location = new System.Drawing.Point(64, 387);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(403, 154);
             this.label2.TabIndex = 2;
@@ -216,7 +233,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.RemainAttemptLabel);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -225,7 +242,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(240, 535);
+            this.panel2.Size = new System.Drawing.Size(250, 591);
             this.panel2.TabIndex = 1;
             // 
             // RemainAttemptLabel
@@ -234,10 +251,11 @@
             this.RemainAttemptLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RemainAttemptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemainAttemptLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.RemainAttemptLabel.Location = new System.Drawing.Point(0, 500);
+            this.RemainAttemptLabel.Location = new System.Drawing.Point(0, 536);
             this.RemainAttemptLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RemainAttemptLabel.Name = "RemainAttemptLabel";
-            this.RemainAttemptLabel.Size = new System.Drawing.Size(238, 33);
+            this.RemainAttemptLabel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.RemainAttemptLabel.Size = new System.Drawing.Size(248, 53);
             this.RemainAttemptLabel.TabIndex = 5;
             this.RemainAttemptLabel.Text = "Attempts Left : 3";
             this.RemainAttemptLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -249,8 +267,8 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(238, 266);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(15);
+            this.pictureBox1.Size = new System.Drawing.Size(248, 266);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -261,10 +279,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(82)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(776, 535);
+            this.ClientSize = new System.Drawing.Size(798, 591);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -277,6 +296,7 @@
             this.Text = "Zoo Management - Login";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -304,6 +324,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label RemainAttemptLabel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

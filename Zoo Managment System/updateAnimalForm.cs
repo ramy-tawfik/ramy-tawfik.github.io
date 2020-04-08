@@ -44,6 +44,7 @@ namespace Zoo_Managment_System
             GenderComboBox.SelectedItem = selectedAnimal.Gender;
         }
 
+        [Obsolete]
         private void updateBtn_Click(object sender, EventArgs e)
         {
             if (NameTB.Text.Length < 1)
@@ -60,8 +61,8 @@ namespace Zoo_Managment_System
                 {
                     MySqlCommand command;
                     MySqlDataReader mdr;
-                    string selectQuery = "UPDATE uptodeal_ZooDatabase.Animal SET Class = @class, Species=@species,Status=@status, Name=@name, Gender=@gender WHERE ID = @animalID";
-                    //+ ", LastFeed ="+ lastFeedDTPicker.Value
+                    string selectQuery = "UPDATE uptodeal_ZooDatabase.Animal SET Class = @class, Species=@species,Status=@status, Name=@name, Gender=@gender, LastFeed=@lastFeed WHERE ID = @animalID";
+
                     command = new MySqlCommand(selectQuery, cnn);
 
                     command.Parameters.Add("@name", MySqlDbType.Text);
@@ -78,6 +79,9 @@ namespace Zoo_Managment_System
 
                     command.Parameters.Add("@gender", MySqlDbType.Text);
                     command.Parameters["@gender"].Value = GenderComboBox.SelectedItem.ToString();
+
+                    command.Parameters.Add("@lastFeed", MySqlDbType.Datetime);
+                    command.Parameters["@lastFeed"].Value = lastFeedDTPicker.Value;
 
                     command.Parameters.Add("@animalID", MySqlDbType.Int16);
                     command.Parameters["@animalID"].Value = animalID;
@@ -105,10 +109,6 @@ namespace Zoo_Managment_System
         private void label7_Click(object sender, EventArgs e)
         {
             lastFeedDTPicker.Value = DateTime.Now;
-        }
-
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
         }
     }
 }

@@ -1,16 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zoo_Management_System;
 
 namespace Zoo_Managment_System
 {
-    static class AnimalHelper
+    internal static class AnimalHelper
     {
         private static string connetionString = null;
         private static MySqlConnection cnn;
@@ -24,7 +20,7 @@ namespace Zoo_Managment_System
             string selectQuery = "SELECT * FROM uptodeal_ZooDatabase.Animal";
             try
             {
-                openConnection();
+                OpenConnection();
                 animalList.Clear();
 
                 command = new MySqlCommand(selectQuery, cnn);
@@ -99,7 +95,7 @@ namespace Zoo_Managment_System
 
                     animalList.Add(animal);
                 }
-                closeConnection();
+                CloseConnection();
             }
             catch (Exception ex)
             {
@@ -108,8 +104,7 @@ namespace Zoo_Managment_System
             return animalList;
         }
 
-
-        private static void openConnection()
+        public static void OpenConnection()
         {
             connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
             cnn = new MySqlConnection(connetionString);
@@ -124,24 +119,12 @@ namespace Zoo_Managment_System
         }
 
         // close database connection
-        private static void closeConnection()
+        public static void CloseConnection()
         {
             if (cnn.State == System.Data.ConnectionState.Open)
             {
                 cnn.Close();
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
-
- 
 }
