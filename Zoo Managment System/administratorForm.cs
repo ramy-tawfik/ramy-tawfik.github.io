@@ -254,6 +254,7 @@ namespace Zoo_Management_System
 
         private void usersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Case of update cell clicked
             if (e.ColumnIndex.Equals(5) && e.RowIndex >= 0)
             {
                 DataGridViewRow row = usersDataGridView.Rows[e.RowIndex];
@@ -276,6 +277,7 @@ namespace Zoo_Management_System
                 }
             }
 
+            //// case if Delete cell clicked
             if (e.ColumnIndex.Equals(6) && e.RowIndex >= 0)
             {
                 DataGridViewRow row = usersDataGridView.Rows[e.RowIndex];
@@ -308,6 +310,21 @@ namespace Zoo_Management_System
                     }
                 }
             }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
