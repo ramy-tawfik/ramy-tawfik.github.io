@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.testButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,8 +59,6 @@
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.testButton);
             this.panel1.Controls.Add(this.loginButton);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label2);
@@ -70,8 +66,9 @@
             this.panel1.Location = new System.Drawing.Point(243, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(566, 590);
+            this.panel1.Size = new System.Drawing.Size(566, 651);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox2
             // 
@@ -85,30 +82,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(231, 528);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 50);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "open ZooKeeper";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // testButton
-            // 
-            this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.testButton.Location = new System.Drawing.Point(68, 528);
-            this.testButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(157, 50);
-            this.testButton.TabIndex = 1;
-            this.testButton.Text = "open admin";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
-            // 
             // loginButton
             // 
             this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
@@ -119,7 +92,7 @@
             this.loginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(398, 56);
-            this.loginButton.TabIndex = 3;
+            this.loginButton.TabIndex = 1;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -211,12 +184,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 387);
+            this.label2.Location = new System.Drawing.Point(25, 387);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(403, 154);
+            this.label2.Size = new System.Drawing.Size(182, 264);
             this.label2.TabIndex = 2;
-            this.label2.Text = "For testing \r\nusername: ramy\r\npassword: ramy\r\nopen admin and open zooKeeper butto" +
-    "ns to go to\r\nspecific forms directly during developing\r\n\r\n\r\n";
+            this.label2.Text = "For testing\r\nAdmin\r\nusername: admin\r\npassword: admin\r\n\r\nZookeeper\r\nusername: zook" +
+    "eeper\r\npassword: zookeeper\r\n\r\n\r\n\r\n\r\n";
             // 
             // attemptLabel
             // 
@@ -318,10 +291,8 @@
         private System.Windows.Forms.TextBox passTextBox;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label attemptLabel;
-        private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label RemainAttemptLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;

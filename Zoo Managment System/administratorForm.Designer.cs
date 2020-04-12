@@ -62,8 +62,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.addButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -166,9 +164,10 @@
             this.taskThreeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.taskThreeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.taskThreeBtn.FlatAppearance.BorderSize = 0;
+            this.taskThreeBtn.Image = global::Zoo_Managment_System.Properties.Resources.icons8_forgot_password;
             this.taskThreeBtn.Name = "taskThreeBtn";
             this.taskThreeBtn.UseVisualStyleBackColor = false;
-            this.taskThreeBtn.Click += new System.EventHandler(this.taskThreeBtn_Click);
+            this.taskThreeBtn.Click += new System.EventHandler(this.TaskThreeBtn_Click);
             // 
             // taskTwoBtn
             // 
@@ -179,7 +178,7 @@
             this.taskTwoBtn.Image = global::Zoo_Managment_System.Properties.Resources.Statistics_icon;
             this.taskTwoBtn.Name = "taskTwoBtn";
             this.taskTwoBtn.UseVisualStyleBackColor = false;
-            this.taskTwoBtn.Click += new System.EventHandler(this.taskTwoBtn_Click);
+            this.taskTwoBtn.Click += new System.EventHandler(this.TaskTwoBtn_Click);
             // 
             // taskOneBtn
             // 
@@ -187,12 +186,11 @@
             this.taskOneBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.taskOneBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.taskOneBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.taskOneBtn.FlatAppearance.BorderSize = 0;
             this.taskOneBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
             this.taskOneBtn.Image = global::Zoo_Managment_System.Properties.Resources.Users_icon;
             this.taskOneBtn.Name = "taskOneBtn";
             this.taskOneBtn.UseVisualStyleBackColor = false;
-            this.taskOneBtn.Click += new System.EventHandler(this.taskOneBtn_Click);
+            this.taskOneBtn.Click += new System.EventHandler(this.TaskOneBtn_Click);
             // 
             // tabPanel
             // 
@@ -268,7 +266,6 @@
             this.tabcontrol.Multiline = true;
             this.tabcontrol.Name = "tabcontrol";
             this.tabcontrol.SelectedIndex = 0;
-            this.tabcontrol.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabcontrol_Selected);
             // 
             // userTab
             // 
@@ -347,8 +344,6 @@
             // 
             resources.ApplyResources(this.tableLayoutPanel7, "tableLayoutPanel7");
             this.tableLayoutPanel7.Controls.Add(this.addButton, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.button2, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.button3, 3, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             // 
             // addButton
@@ -358,19 +353,7 @@
             this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
             this.addButton.Name = "addButton";
             this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // usersDataGridView
             // 
@@ -399,7 +382,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usersDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.usersDataGridView.RowTemplate.Height = 28;
-            this.usersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellClick);
+            this.usersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellClick);
             // 
             // ID
             // 
@@ -734,8 +717,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "administratorForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.administratorForm_FormClosed);
-            this.Load += new System.EventHandler(this.administratorForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorForm_FormClosed);
+            this.Load += new System.EventHandler(this.AdministratorForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -743,7 +726,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.tabcontrol.ResumeLayout(false);
             this.userTab.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -829,8 +811,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel tabPanel2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;

@@ -153,6 +153,16 @@ namespace Zoo_Managment_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_forgot_password {
+            get {
+                object obj = ResourceManager.GetObject("icons8_forgot_password", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_full_screen {
             get {
                 object obj = ResourceManager.GetObject("icons8_full_screen", resourceCulture);

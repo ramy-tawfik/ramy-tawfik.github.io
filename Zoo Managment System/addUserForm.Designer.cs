@@ -42,7 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.passwordTB = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addUserBTN = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,7 +91,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.23758F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel4.Controls.Add(this.usernameTB, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.roleCB, 5, 0);
@@ -146,9 +146,9 @@
             this.roleCB.Items.AddRange(new object[] {
             "Admin",
             "ZooKeeper"});
-            this.roleCB.Location = new System.Drawing.Point(776, 18);
+            this.roleCB.Location = new System.Drawing.Point(775, 18);
             this.roleCB.Name = "roleCB";
-            this.roleCB.Size = new System.Drawing.Size(179, 30);
+            this.roleCB.Size = new System.Drawing.Size(180, 30);
             this.roleCB.TabIndex = 2;
             // 
             // label1
@@ -180,7 +180,7 @@
             // 
             this.lNameTB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameTB.Location = new System.Drawing.Point(528, 20);
+            this.lNameTB.Location = new System.Drawing.Point(527, 20);
             this.lNameTB.Name = "lNameTB";
             this.lNameTB.Size = new System.Drawing.Size(171, 28);
             this.lNameTB.TabIndex = 1;
@@ -201,7 +201,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.label3.Location = new System.Drawing.Point(705, 0);
+            this.label3.Location = new System.Drawing.Point(704, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 49);
             this.label3.TabIndex = 8;
@@ -224,7 +224,7 @@
             // 
             this.passwordTB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.passwordTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTB.Location = new System.Drawing.Point(528, 69);
+            this.passwordTB.Location = new System.Drawing.Point(527, 69);
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.PasswordChar = '*';
             this.passwordTB.Size = new System.Drawing.Size(171, 28);
@@ -235,7 +235,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.addUserBTN, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 251);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(10, 3, 10, 20);
@@ -245,21 +245,21 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(950, 74);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // button1
+            // addUserBTN
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(227)))), ((int)(((byte)(130)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
-            this.button1.Location = new System.Drawing.Point(10, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(455, 54);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addUserBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(227)))), ((int)(((byte)(130)))));
+            this.addUserBTN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addUserBTN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addUserBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUserBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.addUserBTN.Location = new System.Drawing.Point(10, 10);
+            this.addUserBTN.Margin = new System.Windows.Forms.Padding(10);
+            this.addUserBTN.Name = "addUserBTN";
+            this.addUserBTN.Size = new System.Drawing.Size(455, 54);
+            this.addUserBTN.TabIndex = 0;
+            this.addUserBTN.Text = "Add";
+            this.addUserBTN.UseVisualStyleBackColor = false;
+            this.addUserBTN.Click += new System.EventHandler(this.addUserBTN_Click);
             // 
             // button2
             // 
@@ -308,7 +308,7 @@
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addUserBTN;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

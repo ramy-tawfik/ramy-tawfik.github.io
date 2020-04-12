@@ -45,7 +45,7 @@ namespace Zoo_Managment_System
         }
 
         [Obsolete]
-        private void updateBtn_Click(object sender, EventArgs e)
+        private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (NameTB.Text.Length < 1)
             {
@@ -102,11 +102,8 @@ namespace Zoo_Managment_System
         }
 
         // set dateTime picker to current date and time
-        private void nowBtn_Click(object sender, EventArgs e)
-        {
-        }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void NowLabel_Click(object sender, EventArgs e)
         {
             lastFeedDTPicker.Value = DateTime.Now;
         }

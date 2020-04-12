@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(updateAnimalForm));
             this.GenderComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,12 +45,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.nowLabel = new System.Windows.Forms.Label();
             this.updateBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -71,7 +73,7 @@
             this.GenderComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.GenderComboBox.Name = "GenderComboBox";
             this.GenderComboBox.Size = new System.Drawing.Size(174, 30);
-            this.GenderComboBox.TabIndex = 17;
+            this.GenderComboBox.TabIndex = 3;
             // 
             // label1
             // 
@@ -104,6 +106,7 @@
             this.NameTB.Name = "NameTB";
             this.NameTB.Size = new System.Drawing.Size(217, 28);
             this.NameTB.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.NameTB, "Animal Name");
             // 
             // label3
             // 
@@ -149,7 +152,7 @@
             this.label6.Location = new System.Drawing.Point(638, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 28);
-            this.label6.TabIndex = 15;
+            this.label6.TabIndex = 4;
             this.label6.Text = "Status";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -164,7 +167,7 @@
             this.speciesComboBox.Name = "speciesComboBox";
             this.speciesComboBox.Size = new System.Drawing.Size(205, 30);
             this.speciesComboBox.Sorted = true;
-            this.speciesComboBox.TabIndex = 9;
+            this.speciesComboBox.TabIndex = 2;
             // 
             // statusComboBox
             // 
@@ -178,7 +181,7 @@
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(205, 30);
             this.statusComboBox.Sorted = true;
-            this.statusComboBox.TabIndex = 14;
+            this.statusComboBox.TabIndex = 5;
             // 
             // lastFeedDTPicker
             // 
@@ -190,7 +193,8 @@
             this.lastFeedDTPicker.Location = new System.Drawing.Point(3, 3);
             this.lastFeedDTPicker.Name = "lastFeedDTPicker";
             this.lastFeedDTPicker.Size = new System.Drawing.Size(153, 26);
-            this.lastFeedDTPicker.TabIndex = 16;
+            this.lastFeedDTPicker.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.lastFeedDTPicker, "Last time You Feed The Animal");
             // 
             // classComboBox
             // 
@@ -203,7 +207,8 @@
             this.classComboBox.Name = "classComboBox";
             this.classComboBox.Size = new System.Drawing.Size(174, 30);
             this.classComboBox.Sorted = true;
-            this.classComboBox.TabIndex = 11;
+            this.classComboBox.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.classComboBox, "Choose Animal Class");
             // 
             // groupBox1
             // 
@@ -260,7 +265,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.07207F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.92793F));
             this.tableLayoutPanel1.Controls.Add(this.lastFeedDTPicker, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.nowLabel, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(410, 57);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -268,16 +273,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(222, 28);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
-            // label7
+            // nowLabel
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(162, 0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label7.Size = new System.Drawing.Size(54, 28);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Now";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.nowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nowLabel.Location = new System.Drawing.Point(162, 0);
+            this.nowLabel.Name = "nowLabel";
+            this.nowLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.nowLabel.Size = new System.Drawing.Size(54, 28);
+            this.nowLabel.TabIndex = 20;
+            this.nowLabel.Text = "Now";
+            this.nowLabel.Click += new System.EventHandler(this.NowLabel_Click);
             // 
             // updateBtn
             // 
@@ -293,7 +298,7 @@
             this.updateBtn.TabIndex = 0;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
-            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
+            this.updateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // button2
             // 
@@ -358,6 +363,10 @@
             this.label8.Text = "* Required  Field";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            // 
             // updateAnimalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -404,7 +413,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label nowLabel;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

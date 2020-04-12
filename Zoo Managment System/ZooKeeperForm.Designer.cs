@@ -44,13 +44,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZooKeeperForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.homeBTN = new System.Windows.Forms.Button();
+            this.searchBTN = new System.Windows.Forms.Button();
+            this.addAnimalBTN = new System.Windows.Forms.Button();
             this.userLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -86,7 +87,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.addAnimalGridView = new System.Windows.Forms.DataGridView();
             this.temp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,11 +97,11 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.UpdateBTN = new System.Windows.Forms.Button();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lastFeedDTPicker = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
+            this.nowLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -109,7 +110,7 @@
             this.genderAddCB = new System.Windows.Forms.ComboBox();
             this.animalNameAddTB = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.NewSpeciesLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.classAddCB = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -120,7 +121,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.zookeeperTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolTipzookeeper = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -136,7 +139,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addAnimalGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -149,6 +152,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(81)))), ((int)(((byte)(73)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -156,6 +160,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(909, 111);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::Zoo_Managment_System.Properties.Resources.icons8_forgot_password;
+            this.pictureBox2.Location = new System.Drawing.Point(867, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(39, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            this.toolTipzookeeper.SetToolTip(this.pictureBox2, "Log Out");
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label4
             // 
@@ -172,6 +189,7 @@
             // label5
             // 
             this.label5.AllowDrop = true;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -202,9 +220,9 @@
             this.tableLayoutPanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.button2, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.button4, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.homeBTN, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.searchBTN, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.addAnimalBTN, 0, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 199);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -215,92 +233,96 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(238, 372);
             this.tableLayoutPanel6.TabIndex = 8;
             // 
-            // button2
+            // homeBTN
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
-            this.button2.Image = global::Zoo_Managment_System.Properties.Resources.home_icon_64;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(5, 5);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.MinimumSize = new System.Drawing.Size(213, 114);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 10);
-            this.button2.Size = new System.Drawing.Size(228, 114);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "HOME";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.homeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.homeBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.homeBTN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeBTN.FlatAppearance.BorderSize = 0;
+            this.homeBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.homeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.homeBTN.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
+            this.homeBTN.Image = global::Zoo_Managment_System.Properties.Resources.home_icon_64;
+            this.homeBTN.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.homeBTN.Location = new System.Drawing.Point(5, 5);
+            this.homeBTN.Margin = new System.Windows.Forms.Padding(5);
+            this.homeBTN.MinimumSize = new System.Drawing.Size(213, 114);
+            this.homeBTN.Name = "homeBTN";
+            this.homeBTN.Padding = new System.Windows.Forms.Padding(6, 6, 6, 10);
+            this.homeBTN.Size = new System.Drawing.Size(228, 114);
+            this.homeBTN.TabIndex = 0;
+            this.homeBTN.Text = "HOME";
+            this.homeBTN.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.homeBTN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.homeBTN.UseVisualStyleBackColor = false;
+            this.homeBTN.Click += new System.EventHandler(this.HomeBTN_Click);
             // 
-            // button1
+            // searchBTN
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
-            this.button1.Image = global::Zoo_Managment_System.Properties.Resources.zoom_icon_64;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(5, 129);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.MinimumSize = new System.Drawing.Size(213, 114);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 10);
-            this.button1.Size = new System.Drawing.Size(228, 114);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "SEARCH";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.searchBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.searchBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.searchBTN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBTN.FlatAppearance.BorderSize = 0;
+            this.searchBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.searchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBTN.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
+            this.searchBTN.Image = global::Zoo_Managment_System.Properties.Resources.zoom_icon_64;
+            this.searchBTN.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.searchBTN.Location = new System.Drawing.Point(5, 129);
+            this.searchBTN.Margin = new System.Windows.Forms.Padding(5);
+            this.searchBTN.MinimumSize = new System.Drawing.Size(213, 114);
+            this.searchBTN.Name = "searchBTN";
+            this.searchBTN.Padding = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.searchBTN.Size = new System.Drawing.Size(228, 114);
+            this.searchBTN.TabIndex = 1;
+            this.searchBTN.Text = "SEARCH";
+            this.searchBTN.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.searchBTN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.searchBTN.UseVisualStyleBackColor = false;
+            this.searchBTN.Click += new System.EventHandler(this.SearchBTN_Click);
             // 
-            // button4
+            // addAnimalBTN
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
-            this.button4.Image = global::Zoo_Managment_System.Properties.Resources.add_animal;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(5, 253);
-            this.button4.Margin = new System.Windows.Forms.Padding(5);
-            this.button4.MinimumSize = new System.Drawing.Size(213, 114);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(5, 5, 5, 10);
-            this.button4.Size = new System.Drawing.Size(228, 114);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "ADD ANIMAL";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.addAnimalBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.addAnimalBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addAnimalBTN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addAnimalBTN.FlatAppearance.BorderSize = 0;
+            this.addAnimalBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.addAnimalBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addAnimalBTN.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAnimalBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
+            this.addAnimalBTN.Image = global::Zoo_Managment_System.Properties.Resources.add_animal;
+            this.addAnimalBTN.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.addAnimalBTN.Location = new System.Drawing.Point(5, 253);
+            this.addAnimalBTN.Margin = new System.Windows.Forms.Padding(5);
+            this.addAnimalBTN.MinimumSize = new System.Drawing.Size(213, 114);
+            this.addAnimalBTN.Name = "addAnimalBTN";
+            this.addAnimalBTN.Padding = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.addAnimalBTN.Size = new System.Drawing.Size(228, 114);
+            this.addAnimalBTN.TabIndex = 7;
+            this.addAnimalBTN.Text = "ADD ANIMAL";
+            this.addAnimalBTN.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.addAnimalBTN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.addAnimalBTN.UseVisualStyleBackColor = false;
+            this.addAnimalBTN.Click += new System.EventHandler(this.AddAnimalBTN_Click);
             // 
             // userLabel
             // 
-            this.userLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.userLabel.AutoSize = true;
+            this.userLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.userLabel.ForeColor = System.Drawing.Color.White;
             this.userLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.userLabel.Location = new System.Drawing.Point(19, 652);
-            this.userLabel.Margin = new System.Windows.Forms.Padding(10, 5, 5, 10);
+            this.userLabel.Location = new System.Drawing.Point(0, 651);
+            this.userLabel.Margin = new System.Windows.Forms.Padding(50, 50, 100, 50);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(104, 25);
+            this.userLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.userLabel.Size = new System.Drawing.Size(124, 45);
             this.userLabel.TabIndex = 6;
             this.userLabel.Text = "user name";
-            this.userLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.userLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -609,6 +631,7 @@
             this.panel3.Controls.Add(this.timeLabel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(238, 640);
+            this.panel3.MaximumSize = new System.Drawing.Size(5000, 56);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(909, 56);
             this.panel3.TabIndex = 5;
@@ -639,7 +662,7 @@
             this.classTB.TabIndex = 0;
             this.classTB.Text = "Class";
             this.classTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.classTB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.classTB_MouseClick);
+            this.classTB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ClassTB_MouseClick);
             this.classTB.TextChanged += new System.EventHandler(this.classTB_TextChanged);
             // 
             // dataGridView2
@@ -744,7 +767,7 @@
             this.nameTB.TabIndex = 1;
             this.nameTB.Text = "Name";
             this.nameTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nameTB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.nameTB_MouseClick);
+            this.nameTB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NameTB_MouseClick);
             this.nameTB.TextChanged += new System.EventHandler(this.nameTB_TextChanged);
             // 
             // StatusTB
@@ -827,7 +850,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(126)))), ((int)(((byte)(74)))));
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.addAnimalGridView);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Location = new System.Drawing.Point(28, 4);
             this.tabPage3.Name = "tabPage3";
@@ -836,23 +859,23 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             // 
-            // dataGridView3
+            // addAnimalGridView
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.addAnimalGridView.AllowUserToAddRows = false;
+            this.addAnimalGridView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.addAnimalGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.addAnimalGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(126)))), ((int)(((byte)(74)))));
-            this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.addAnimalGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.addAnimalGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.addAnimalGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(126)))), ((int)(((byte)(74)))));
+            this.addAnimalGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.addAnimalGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -861,9 +884,9 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkOrange;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.addAnimalGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.addAnimalGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.addAnimalGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.temp,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -872,11 +895,11 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewButtonColumn1});
-            this.dataGridView3.GridColor = System.Drawing.SystemColors.Info;
-            this.dataGridView3.Location = new System.Drawing.Point(13, 343);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(10);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
+            this.addAnimalGridView.GridColor = System.Drawing.SystemColors.Info;
+            this.addAnimalGridView.Location = new System.Drawing.Point(13, 343);
+            this.addAnimalGridView.Margin = new System.Windows.Forms.Padding(10);
+            this.addAnimalGridView.Name = "addAnimalGridView";
+            this.addAnimalGridView.ReadOnly = true;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(126)))), ((int)(((byte)(74)))));
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -884,18 +907,18 @@
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.addAnimalGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.addAnimalGridView.RowHeadersVisible = false;
+            this.addAnimalGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridView3.RowTemplate.DividerHeight = 1;
-            this.dataGridView3.RowTemplate.Height = 30;
-            this.dataGridView3.RowTemplate.ReadOnly = true;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(887, 189);
-            this.dataGridView3.TabIndex = 5;
-            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
+            this.addAnimalGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.addAnimalGridView.RowTemplate.DividerHeight = 1;
+            this.addAnimalGridView.RowTemplate.Height = 30;
+            this.addAnimalGridView.RowTemplate.ReadOnly = true;
+            this.addAnimalGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.addAnimalGridView.Size = new System.Drawing.Size(887, 189);
+            this.addAnimalGridView.TabIndex = 5;
+            this.addAnimalGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddAnimalGridView_CellClick);
             // 
             // temp
             // 
@@ -982,7 +1005,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
-            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.UpdateBTN);
             this.groupBox2.Controls.Add(this.tableLayoutPanel11);
             this.groupBox2.Controls.Add(this.tableLayoutPanel10);
             this.groupBox2.Controls.Add(this.tableLayoutPanel9);
@@ -998,25 +1021,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Enter Animal Info";
             // 
-            // button5
+            // UpdateBTN
             // 
-            this.button5.AutoSize = true;
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(458, 262);
-            this.button5.Margin = new System.Windows.Forms.Padding(5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(315, 45);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Finish And Update";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.UpdateBTN.AutoSize = true;
+            this.UpdateBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.UpdateBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UpdateBTN.FlatAppearance.BorderSize = 0;
+            this.UpdateBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(199)))), ((int)(((byte)(45)))));
+            this.UpdateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateBTN.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(19)))), ((int)(((byte)(38)))));
+            this.UpdateBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateBTN.Location = new System.Drawing.Point(458, 262);
+            this.UpdateBTN.Margin = new System.Windows.Forms.Padding(5);
+            this.UpdateBTN.Name = "UpdateBTN";
+            this.UpdateBTN.Size = new System.Drawing.Size(315, 45);
+            this.UpdateBTN.TabIndex = 21;
+            this.UpdateBTN.Text = "Finish And Update";
+            this.toolTipzookeeper.SetToolTip(this.UpdateBTN, "Add Queue to database");
+            this.UpdateBTN.UseVisualStyleBackColor = false;
+            this.UpdateBTN.Click += new System.EventHandler(this.UpdateBTN_Click);
             // 
             // tableLayoutPanel11
             // 
@@ -1040,7 +1064,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.07207F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.92793F));
             this.tableLayoutPanel8.Controls.Add(this.lastFeedDTPicker, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.label10, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.nowLabel, 1, 0);
             this.tableLayoutPanel8.Location = new System.Drawing.Point(155, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
@@ -1060,16 +1084,16 @@
             this.lastFeedDTPicker.Size = new System.Drawing.Size(190, 26);
             this.lastFeedDTPicker.TabIndex = 16;
             // 
-            // label10
+            // nowLabel
             // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(199, 0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label10.Size = new System.Drawing.Size(71, 44);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Now";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.nowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nowLabel.Location = new System.Drawing.Point(199, 0);
+            this.nowLabel.Name = "nowLabel";
+            this.nowLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.nowLabel.Size = new System.Drawing.Size(71, 44);
+            this.nowLabel.TabIndex = 20;
+            this.nowLabel.Text = "Now";
+            this.nowLabel.Click += new System.EventHandler(this.nowLabel_Click);
             // 
             // label9
             // 
@@ -1102,6 +1126,7 @@
             this.addBtn.Size = new System.Drawing.Size(269, 41);
             this.addBtn.TabIndex = 20;
             this.addBtn.Text = "Add";
+            this.toolTipzookeeper.SetToolTip(this.addBtn, "Add to the Queue");
             this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
@@ -1178,7 +1203,7 @@
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.80278F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.19721F));
-            this.tableLayoutPanel9.Controls.Add(this.label13, 0, 2);
+            this.tableLayoutPanel9.Controls.Add(this.NewSpeciesLabel, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.classAddCB, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.label12, 0, 1);
@@ -1197,19 +1222,19 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(431, 150);
             this.tableLayoutPanel9.TabIndex = 4;
             // 
-            // label13
+            // NewSpeciesLabel
             // 
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.label13.Location = new System.Drawing.Point(3, 66);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 45);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "New Species";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label13.Click += new System.EventHandler(this.label13_Click_1);
+            this.NewSpeciesLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
+            this.NewSpeciesLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NewSpeciesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewSpeciesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
+            this.NewSpeciesLabel.Location = new System.Drawing.Point(3, 66);
+            this.NewSpeciesLabel.Name = "NewSpeciesLabel";
+            this.NewSpeciesLabel.Size = new System.Drawing.Size(143, 45);
+            this.NewSpeciesLabel.TabIndex = 17;
+            this.NewSpeciesLabel.Text = "New Species";
+            this.NewSpeciesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NewSpeciesLabel.Click += new System.EventHandler(this.NewSpeciesLabel_Click);
             // 
             // label6
             // 
@@ -1346,7 +1371,7 @@
             // 
             this.zookeeperTimer.Enabled = true;
             this.zookeeperTimer.Interval = 1000;
-            this.zookeeperTimer.Tick += new System.EventHandler(this.zookeeperTimer_Tick);
+            this.zookeeperTimer.Tick += new System.EventHandler(this.ZookeeperTimer_Tick);
             // 
             // ZooKeeperForm
             // 
@@ -1367,6 +1392,7 @@
             this.Load += new System.EventHandler(this.ZooKeeperForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -1385,7 +1411,7 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addAnimalGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
@@ -1421,8 +1447,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox classTB;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button homeBTN;
+        private System.Windows.Forms.Button searchBTN;
         private System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox nameTB;
@@ -1438,7 +1464,7 @@
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Timer zookeeperTimer;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button addAnimalBTN;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1454,14 +1480,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.DateTimePicker lastFeedDTPicker;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label nowLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridView addAnimalGridView;
+        private System.Windows.Forms.Button UpdateBTN;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox animalNameAddTB;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label NewSpeciesLabel;
         private System.Windows.Forms.TextBox newSpeciesTB;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn animalClass;
@@ -1480,5 +1506,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.ComboBox genderAddCB;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolTip toolTipzookeeper;
     }
 }

@@ -143,20 +143,14 @@ namespace Zoo_Management_System
             adminForm.ShowDialog();
             this.Close();
         }
-
-        /////// for testing Remove Me ///////
-        private void button1_Click(object sender, EventArgs e)
-        {
-            User user = new User();
-            ZooKeeperForm zooKeeperForm = new ZooKeeperForm(user);
-            this.Hide();
-            zooKeeperForm.ShowDialog();
-            this.Close();
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            userTextBox.Focus();
         }
     }
 }

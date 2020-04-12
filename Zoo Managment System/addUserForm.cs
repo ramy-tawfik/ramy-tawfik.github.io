@@ -8,7 +8,7 @@ namespace Zoo_Management_System
     {
         public User addedUser = new User();
         public bool validUser = false;
-        
+
         public addUserForm()
         {
             InitializeComponent();
@@ -19,14 +19,16 @@ namespace Zoo_Management_System
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        // When add user button clicked
+        private void addUserBTN_Click(object sender, EventArgs e)
         {
+            // If user name or password less than 4 characters
             if (usernameTB.Text.Length < 4 || passwordTB.Text.Length < 4)
             {
                 MessageBox.Show("Username and Password less than 4 characters ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-            else if (fNameTB.Text.Length < 1 || lNameTB.Text.Length < 1 || roleCB.SelectedIndex < 0 )
+            // If any of the text boxes is empty
+            else if (fNameTB.Text.Length < 1 || lNameTB.Text.Length < 1 || roleCB.SelectedIndex < 0)
             {
                 MessageBox.Show("Please Fill All Required Data", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -87,13 +89,9 @@ namespace Zoo_Management_System
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void fNameTB_TextChanged(object sender, EventArgs e)
         {
-           usernameTB.Text = fNameTB.Text + "." + lNameTB.Text;
+            usernameTB.Text = fNameTB.Text + "." + lNameTB.Text;
         }
 
         private void lNameTB_TextChanged(object sender, EventArgs e)

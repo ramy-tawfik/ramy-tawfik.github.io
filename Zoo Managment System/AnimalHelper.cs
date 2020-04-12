@@ -104,6 +104,7 @@ namespace Zoo_Managment_System
             return animalList;
         }
 
+        // Open connection to Database
         public static void OpenConnection()
         {
             connetionString = "server=96.125.160.33;database=uptodeal_ZooDatabase;uid=uptodeal_ZooApp;pwd=ZooAppPass@;";
