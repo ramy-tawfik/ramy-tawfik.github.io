@@ -22,6 +22,7 @@ The application was required to follow this scenario
 7. Allow a user to log out.
 8. Stays on the credential screen until either a successful attempt has been made, three unsuccessful attempts have been made, or a        user chooses to exit.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3UwCrfv-Kws" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Markdown
 
