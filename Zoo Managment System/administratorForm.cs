@@ -27,7 +27,7 @@ namespace Zoo_Management_System
         }
 
         // user tab selected
-        private void taskOneBtn_Click(object sender, System.EventArgs e)
+        private void TaskOneBtn_Click(object sender, System.EventArgs e)
         {
             tabPanel.Height = taskOneBtn.Height;
             tabPanel.Top = taskOneBtn.Top;
@@ -38,7 +38,7 @@ namespace Zoo_Management_System
         }
 
         //  animals tab selected
-        private void taskTwoBtn_Click(object sender, System.EventArgs e)
+        private void TaskTwoBtn_Click(object sender, System.EventArgs e)
         {
             tabPanel.Height = taskTwoBtn.Height;
             tabPanel.Top = taskTwoBtn.Top;
@@ -50,18 +50,16 @@ namespace Zoo_Management_System
             // use connectAnimal only once
             if (!animalLoaded)
             {
-                connectAnimal();
+                ConnectAnimal();
             }
         }
 
-        private void taskThreeBtn_Click(object sender, System.EventArgs e)
+        private void TaskThreeBtn_Click(object sender, System.EventArgs e)
         {
-            tabPanel.Height = taskThreeBtn.Height;
-            tabPanel.Top = taskThreeBtn.Top;
-            tabcontrol.SelectedTab = thirdTab;
-
-            tabPanel2.Height = taskThreeBtn.Height;
-            tabPanel2.Top = taskThreeBtn.Top;
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -70,7 +68,7 @@ namespace Zoo_Management_System
         }
 
         // Load user from database to ArrayList
-        private void connectUsers()
+        private void ConnectUsers()
         {
             userList.Clear();
             string connetionString = null;
@@ -104,7 +102,7 @@ namespace Zoo_Management_System
                 }
 
                 cnn.Close();
-                populateUsers();
+                PopulateUsers();
             }
             catch (Exception ex)
             {
@@ -112,7 +110,7 @@ namespace Zoo_Management_System
             }
         }
 
-        private void connectAnimal()
+        private void ConnectAnimal()
         {
             animalList = AnimalHelper.GetAnimalList();
 
@@ -195,24 +193,17 @@ namespace Zoo_Management_System
             animalLoaded = true;
         }
 
-        private void administratorForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void AdministratorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
-            Login login = new Login();
-            login.ShowDialog();
-            this.Close();
+            Application.Exit();
         }
 
-        private void administratorForm_Load(object sender, EventArgs e)
+        private void AdministratorForm_Load(object sender, EventArgs e)
         {
-            connectUsers();
+            ConnectUsers();
         }
 
-        private void tabcontrol_Selected(object sender, TabControlEventArgs e)
-        {
-        }
-
-        private void populateUsers()
+        private void PopulateUsers()
         {
             usersDataGridView.Rows.Clear();
             int admins = 0, zooKeepers = 0;
@@ -234,7 +225,7 @@ namespace Zoo_Management_System
             }
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             this.Opacity = .55;
             addUserForm addUserForm = new addUserForm();
@@ -243,16 +234,12 @@ namespace Zoo_Management_System
 
             if (addUserForm.validUser)
             {
-                connectUsers();
+                ConnectUsers();
             }
             this.Opacity = 1;
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void usersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void UsersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Case of update cell clicked
             if (e.ColumnIndex.Equals(5) && e.RowIndex >= 0)
@@ -273,7 +260,7 @@ namespace Zoo_Management_System
                 updateUserform.ShowDialog();
                 if (updateUserform.userUpdated)
                 {
-                    connectUsers();
+                    ConnectUsers();
                 }
             }
 
@@ -302,7 +289,7 @@ namespace Zoo_Management_System
                         command.Parameters["@ID"].Value = selectedID;
                         cnn.Open();
                         mdr = command.ExecuteReader();
-                        connectUsers();
+                        ConnectUsers();
                     }
                     catch (Exception ex)
                     {
@@ -310,21 +297,6 @@ namespace Zoo_Management_System
                     }
                 }
             }
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

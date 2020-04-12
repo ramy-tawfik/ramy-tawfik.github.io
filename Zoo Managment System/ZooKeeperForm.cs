@@ -24,8 +24,6 @@ namespace Zoo_Management_System
             animalList = AnimalHelper.GetAnimalList();
             tabControl1.SelectedIndex = 1;
             loggedUser = user;
-            
-
         }
 
         private void ZooKeeperForm_Load(object sender, EventArgs e)
@@ -75,7 +73,7 @@ namespace Zoo_Management_System
         }
 
         // fill dataGridView with data from the array list
-        private void populateData()
+        private void PopulateData()
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
@@ -100,15 +98,12 @@ namespace Zoo_Management_System
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            populateData();
+            PopulateData();
         }
 
         private void ZooKeeperForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
-            Login login = new Login();
-            login.ShowDialog();
-            this.Close();
+            Application.Exit();
         }
 
         private void OpenConnection()
@@ -203,19 +198,19 @@ namespace Zoo_Management_System
         }
 
         //Switch the view to search tab
-        private void button1_Click(object sender, EventArgs e)
+        private void SearchBTN_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 2;
         }
 
         // switch view to home tab
-        private void button2_Click(object sender, EventArgs e)
+        private void HomeBTN_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
         }
 
         // clear the text box text on click
-        private void classTB_MouseClick(object sender, MouseEventArgs e)
+        private void ClassTB_MouseClick(object sender, MouseEventArgs e)
         {
             classTB.Text = "";
             SpeciesTB.Text = "Species";
@@ -224,7 +219,7 @@ namespace Zoo_Management_System
         }
 
         // clear the text box text on click
-        private void nameTB_MouseClick(object sender, MouseEventArgs e)
+        private void NameTB_MouseClick(object sender, MouseEventArgs e)
         {
             classTB.Text = "Class";
             SpeciesTB.Text = "Species";
@@ -294,7 +289,7 @@ namespace Zoo_Management_System
                 if (updateAnimalForm.animalUpdated)
                 {
                     animalList = AnimalHelper.GetAnimalList();
-                    populateData();
+                    PopulateData();
                 }
             }
         }
@@ -304,18 +299,18 @@ namespace Zoo_Management_System
             reset();
         }
 
-        private void zookeeperTimer_Tick(object sender, EventArgs e)
+        private void ZookeeperTimer_Tick(object sender, EventArgs e)
         {
             timeLabel.Text = DateTime.Now.ToString();
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        private void Label13_Click(object sender, EventArgs e)
         {
             lastFeedDTPicker.Value = DateTime.Now;
         }
 
+        private int tempID = 0;
 
-        private int tempID = 0; 
         private void addBtn_Click(object sender, EventArgs e)
         {
             if (ValidateAddAnimal())
@@ -337,7 +332,7 @@ namespace Zoo_Management_System
                 animal.LastFeed = lastFeedDTPicker.Value;
                 animal.Gender = genderAddCB.SelectedItem.ToString();
                 addedAnimalList.Add(animal);
-                dataGridView3.Rows.Add(animal.animalID, animal.AnimalClass, animal.AnimalName, animal.Species, animal.Gender, animal.LastFeed, animal.Status);
+                addAnimalGridView.Rows.Add(animal.animalID, animal.AnimalClass, animal.AnimalName, animal.Species, animal.Gender, animal.LastFeed, animal.Status);
                 animalNameAddTB.Text = "";
             }
             else
@@ -351,18 +346,22 @@ namespace Zoo_Management_System
             resetAddForm();
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        // Now Label clicked
+        private void nowLabel_Click(object sender, EventArgs e)
         {
             lastFeedDTPicker.Value = DateTime.Now;
         }
 
+        // Animal Class selected from the combo box
         private void classAddCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (classAddCB.SelectedIndex > -1 )
+            if (classAddCB.SelectedIndex > -1)
             {
                 speciesAddCB.Enabled = true;
                 speciesAddCB.Items.Clear();
                 speciesAddCB.Items.Add("New");
+
+                // fill Species combo Box with species belong to the selected class
                 foreach (Animal item in animalList)
                 {
                     // set animal species
@@ -373,7 +372,7 @@ namespace Zoo_Management_System
                             speciesAddCB.Items.Add(item.Species);
                         }
                     }
-                } 
+                }
             }
         }
 
@@ -389,12 +388,13 @@ namespace Zoo_Management_System
             }
         }
 
-        private void label13_Click_1(object sender, EventArgs e)
+        private void NewSpeciesLabel_Click(object sender, EventArgs e)
         {
             newSpeciesTB.Enabled = true;
             speciesAddCB.SelectedItem = "New";
         }
 
+        // Check if Valid user info is entered
         private bool ValidateAddAnimal()
         {
             if ((animalNameAddTB.Text.Length < 1) || (statusAddCB.SelectedIndex == -1) ||
@@ -413,10 +413,11 @@ namespace Zoo_Management_System
         }
 
         [Obsolete]
-        private void button5_Click(object sender, EventArgs e)
+        // Add Animals to database and update
+        private void UpdateBTN_Click(object sender, EventArgs e)
         {
-
-            if (addedAnimalList.Count!=0)
+            // Check if Valid user info is entered
+            if (addedAnimalList.Count != 0)
             {
                 string connetionString = null;
                 MySqlConnection cnn;
@@ -452,9 +453,8 @@ namespace Zoo_Management_System
                         cnn.Open();
                         mdr = command.ExecuteReader();
                         cnn.Close();
-
                     }
-                    dataGridView3.Rows.Clear();
+                    addAnimalGridView.Rows.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -466,24 +466,26 @@ namespace Zoo_Management_System
                 // to show the newly added data
                 animalList = AnimalHelper.GetAnimalList();
             }
+            // if no animals added to Queue
             else if (ValidateAddAnimal())
             {
-                MessageBox.Show("Please Add Animal First\t\t", "Error",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please Add Animal First\t\t", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
+                //If no Animal added to the list before update
                 MessageBox.Show("Nothing to ADD\t\t", "Error");
             }
-
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void AddAnimalBTN_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
         }
 
-        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void AddAnimalGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Delete animal cell clicked
             if (e.ColumnIndex.Equals(7) && e.RowIndex >= 0)
             {
                 int index = -1;
@@ -491,10 +493,9 @@ namespace Zoo_Management_System
                 // user selected to delete animal from the queue
                 if (result == DialogResult.Yes)
                 {
-                    
                     foreach (Animal item in addedAnimalList)
                     {
-                        if (item.animalID == Convert.ToInt32(dataGridView3.Rows[e.RowIndex].Cells[0].Value))
+                        if (item.animalID == Convert.ToInt32(addAnimalGridView.Rows[e.RowIndex].Cells[0].Value))
                         {
                             index = addedAnimalList.IndexOf(item);
                             break;
@@ -503,13 +504,18 @@ namespace Zoo_Management_System
                     if ((index >= 0) & (index <= addedAnimalList.Count - 1))
                     {
                         addedAnimalList.RemoveAt(index);
-                        dataGridView3.Rows.RemoveAt(e.RowIndex);
+                        addAnimalGridView.Rows.RemoveAt(e.RowIndex);
                     }
-
-
                 }
-               // MessageBox.Show(dataGridView3.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
         }
     }
 }

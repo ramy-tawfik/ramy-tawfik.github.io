@@ -134,7 +134,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.23758F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 184F));
             this.tableLayoutPanel4.Controls.Add(this.roleCB, 5, 0);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label2, 2, 0);
@@ -159,9 +159,9 @@
             this.roleCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleCB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.roleCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleCB.Location = new System.Drawing.Point(697, 7);
+            this.roleCB.Location = new System.Drawing.Point(695, 7);
             this.roleCB.Name = "roleCB";
-            this.roleCB.Size = new System.Drawing.Size(178, 30);
+            this.roleCB.Size = new System.Drawing.Size(180, 30);
             this.roleCB.TabIndex = 2;
             // 
             // label1
@@ -182,9 +182,9 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.label2.Location = new System.Drawing.Point(314, 0);
+            this.label2.Location = new System.Drawing.Point(313, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 40);
+            this.label2.Size = new System.Drawing.Size(128, 40);
             this.label2.TabIndex = 6;
             this.label2.Text = "Last name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -193,7 +193,7 @@
             // 
             this.lNameTB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameTB.Location = new System.Drawing.Point(449, 9);
+            this.lNameTB.Location = new System.Drawing.Point(447, 9);
             this.lNameTB.Name = "lNameTB";
             this.lNameTB.Size = new System.Drawing.Size(172, 28);
             this.lNameTB.TabIndex = 1;
@@ -204,7 +204,7 @@
             this.fNameTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fNameTB.Location = new System.Drawing.Point(154, 9);
             this.fNameTB.Name = "fNameTB";
-            this.fNameTB.Size = new System.Drawing.Size(154, 28);
+            this.fNameTB.Size = new System.Drawing.Size(153, 28);
             this.fNameTB.TabIndex = 0;
             // 
             // label3
@@ -212,7 +212,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(26)))), ((int)(((byte)(91)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(214)))), ((int)(((byte)(68)))));
-            this.label3.Location = new System.Drawing.Point(627, 0);
+            this.label3.Location = new System.Drawing.Point(625, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 40);
             this.label3.TabIndex = 8;
