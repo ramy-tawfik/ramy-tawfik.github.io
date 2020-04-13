@@ -150,6 +150,14 @@ foreach (Animal item in animalList)
 
 ### Databases 
 
+The original application was developed to save data into a text file and that is not secure and not practical. The enhancement of the database category was essential.
+
+1. Created a remote MySQL database.
+2. Hosted the MySQL database remotely on a hosting server to be accessible from anywhere
+2. Designed user's and animals’ tables and columns.
+3. Populated the animal’s table with data " Class,Species,Status" retrieved from the Philadelphia zoo website. 
+4. Used SQL parameters to pass values to SQL queries to avoid SQL injection.
+5. Created search, update, add features to Admin and Zookeeper forms.
 
 
 
