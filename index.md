@@ -43,19 +43,19 @@ My enhancement for the selected project will be three key categories
 2)  Use Windows Forms to develop the application.
 2)	Designed Login Form, Admin Form, and Zookeeper Form using windows forms.
 3)	Expanded the application complexity and functionality.
-4)	Added Admin Functionality 
+4)	Added Admin Functionality [Admin Form](admin.PNG)
     - View users
     - View total user count.
     - Add user functionality.
-    - Added update user functionality.
+    - Added update user functionality. [Update user Form](update user.PNG)
 
-5)	Added Zookeeper Functionality
+5)	Added Zookeeper Functionality [ZooKeeper Form](zookeeper.PNG)
     - view animals by Class, Status, and Species.
     - update animal info.
     - search/view animals.
-    - Search animal by Class / Species / Name / Status. 
-    - Add animal.
-6) Converted the password using a message digest five (MD5) hash. Enhance security.
+    - Search animal by Class / Species / Name / Status. [Search Form](zookeeper search.PNG)
+    - Add animal. [Add Animal](add animals.PNG) 
+6)	Converted the password using a message digest five (MD5) hash. Enhance security.
 
 
 ### Algorithms and data structure
