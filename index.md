@@ -2,9 +2,15 @@
 
 Hello Everyone,
 
-My name is Ramy Tawfik, This is my ePortfolio to show my work for my CS-499 Computer Science Capstone My final class of myComputer Science Degree at Southern New Hampshire University. 
+My name is Ramy Tawfik, this is my ePortfolio to show my work for my CS-499 Computer Science Capstone, My final class of my Computer Science Degree, at Southern New Hampshire University. 
 
 I have learned many important concepts and skills in the Computer Science program. I learned about the software development life cycle “ Agile and waterfall”. Agile methodology was a new concept for me, and I learned a lot of important information about it and how to use Agile methodology while developing a software product. I also learned about object-oriented programing concepts and gained important skills when I develop software using different programming languages. I also learned C++, Java. these are very important and powerful programming languages that will help me in my career. I also learned other skills that I will use such as problem-solving skills and critical thinking skills.
+
+
+Completing my Computer Science degree at SNHU gave me a lot of experience and skills that I will need in my future career as a Software developer. Not just gave me knowledge but taught me how to continually learn and seek new skills and challenges.
+During my learning journey at SNHU, I’ve learned C++, Java, and Python. So, for my Final Project, I choose to do it using a new programming language C# because this will give me a chance to learn C# and learn new skills and face new challenges. I will use C# and Windows Forms to develop my project and also to learn new skills.
+
+
 
 ## Selected artifact
 I will be working on the final project for IT-145 which I developed using Java more than a year ago. The project was developing a console application as an authentication system for a Zoo
@@ -26,7 +32,119 @@ The application was required to follow this scenario
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/StZZ_uEZfIk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### Enhancement
+My enhancement for the selected project will be three key categories
+- Software design and engineering
+- Algorithms and data structure
+- Databases 
+
+### Software design and engineering
+1)	Redesigned the project and changed the programing language to C#. 
+2)  Use Windows Forms to develop the application.
+2)	Designed Login Form, Admin Form, and Zookeeper Form using windows forms.
+3)	Expanded the application complexity and functionality.
+4)	Added Admin Functionality 
+    - View users
+    - View total user count.
+    - Add user functionality.
+    - Added update user functionality.
+
+5)	Added Zookeeper Functionality
+    - view animals by Class, Status, and Species.
+    - update animal info.
+    - search/view animals.
+    - Search animal by Class / Species / Name / Status. 
+    - Add animal.
+6) Converted the password using a message digest five (MD5) hash. Enhance security.
+
+
+### Algorithms and data structure
+Used object-oriented programming concepts to design and developed this application I  also used algorithms and data structures skills to create a more organized and deficient application.
+
+```
+    public enum UserRole
+    {
+        Admin,
+        ZooKeeper
+    }
+
+```
+```
+public class User
+    {
+        private int ID;
+        private string firstName;
+        private string lastName;
+        private string username;
+        private userRole role;
+
+        public int userID { get => ID; set => ID = value; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public userRole Role { get => role; set => role = value; }
+        public string Username { get => username; set => username = value; }
+
+        public string DisplayName()
+        {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+```
+```
+    public enum AnimalClass
+    {
+        Amphibian,
+        Bird,
+        Mammal,
+        Reptile
+    }
+```   
+```
+    public class Animal
+    {
+        private int ID;
+        private AnimalClass animalClass;
+        private string animalName;
+        private string species;
+        private string gender;
+        private AnimalStatus status;
+        private DateTime lastFeed;
+
+        public int AnimalID { get => ID; set => ID = value; }
+        public string AnimalName { get => animalName; set => animalName = value; }
+        public string Species { get => species; set => species = value; }
+        public AnimalStatus Status { get => status; set => status = value; }
+        public DateTime LastFeed { get => lastFeed; set => lastFeed = value; }
+        public AnimalClass AnimalClass { get => animalClass; set => animalClass = value; }
+        public string Gender { get => gender; set => gender = value; }
+
+        public override string ToString()
+        {
+            string animalSt;
+
+            animalSt = String.Format("{0,-25}: {1}\t\n{2,-25}: {3}\t\n{4,-25}: {5}\t\n{6,-25}: {7}\t\n{8,-25}: {9}\t\n{10,-25}:   {11}\t\n",
+                        "Animal Name", animalName,
+                        "Animal Class", animalClass.ToString(),
+                        "Animal Species", species.ToString(),
+                        "Animal Status", status.ToString(),
+                        "Animal Gender", gender,
+                        "Last Feed", lastFeed.ToString());
+
+            return animalSt;
+        }
+    }
+```
+### Databases 
+
+
+
+
+
+
 ### Markdown
+
+
+
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
