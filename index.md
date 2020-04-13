@@ -141,10 +141,12 @@ I also Used Lists to store data retrieved from the SQL database.
         ArrayList animalList = new ArrayList();
         // ArrayList to save Users list retrieved from the Database
         private ArrayList userList = new ArrayList();
-
+        
 ```
-Implemented Search features to Admin and Zookeeper forms to search animal by Class, Species, Status, and name.
-
+Implemented Search features to Admin and Zookeeper forms to search animals by Class, Species, Status, and name. Looking at The number of records for animals and users I see that no advanced search algorithms are needed so I only implemented a linear search but in different situations, we will need different search algorithms such as binary search.
+```
+foreach (Animal item in animalList)
+```
 
 ### Databases 
 
