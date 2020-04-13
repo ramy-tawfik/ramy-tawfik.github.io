@@ -134,6 +134,18 @@ public class User
         }
     }
 ```
+
+I also Used Lists to store data retrieved from the SQL database.
+```
+        //Array List to save animals data
+        ArrayList animalList = new ArrayList();
+        // ArrayList to save Users list retrieved from the Database
+        private ArrayList userList = new ArrayList();
+
+```
+Implemented Search features to Admin and Zookeeper forms to search animal by Class, Species, Status, and name.
+
+
 ### Databases 
 
 
