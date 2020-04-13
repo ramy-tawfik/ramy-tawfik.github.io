@@ -4,7 +4,13 @@ Hello Everyone,
 
 My name is Ramy Tawfik, this is my ePortfolio to show my work for my CS-499 Computer Science Capstone, My final class of my Computer Science Degree, at Southern New Hampshire University. 
 
-I have learned many important concepts and skills in the Computer Science program. In my CS-250 I learned about the software development life cycle “ Agile and waterfall”. Agile methodology was a new concept for me, and I learned a lot of important information about it and how to use Agile methodology while developing a software product. I also learned about object-oriented programing concepts and gained important skills when I develop software using different programming languages. I also learned C++ in my IT-312  Software Devel w/C++.Net class and made a final project using C++[LCR-Game](https://github.com/ramy-tawfik/Study-LCR-Game-C-), Java in my IT-145 Found. in App Development class. In CS-320 Q1397 Software Test, Automation& QA Class I learned a lot of skills in software testing and how important to test my software application. I also learned other skills that I will use such as problem-solving skills and critical thinking skills. CS-260 Data Structures and Algorithms class taught me a lot of important concepts in the data structure and algorithms and how too choose the write thing upon the situation. These are a few examples of what I have learned over the last years during my education journey at SNHU.
+I have learned many important concepts and skills in the Computer Science program. i learned how to use HTML/CSS in IT-270 Web Site Design course, In my CS-250 I learned about the software development life cycle “ Agile and waterfall”. Agile methodology was a new concept for me, and I learned a lot of important information about it and how to use Agile methodology while developing a software product. I also learned about object-oriented programing concepts and gained important skills when I develop software using different programming languages. I also learned C++ in my IT-312  Software Devel w/C++.Net class and made a final project using C++[LCR-Game](https://github.com/ramy-tawfik/Study-LCR-Game-C-), Java in my IT-145 Foundation in App Development class. In CS-320 Q1397 Software Test, Automation& QA Class I learned a lot of skills in software testing and how important to test my software application. I also learned other skills from my Math and Statistics classes that I will use such as problem-solving skills and critical thinking skills. CS-260 Data Structures and Algorithms class taught me a lot of important concepts in the data structure and algorithms and how too choose the write thing upon the situation. Other courses that i realy like the skills and knowledge i learned from them are 
+-  IT-365 Operating Environments,
+-  DAT-220 Fundamentals of Data Mining,
+-  IT-390 Mobile Apps Design & Develop,
+-  CS-330 J2330 Comp Graphic and Visualization,
+-  IT-255 Intro to Linux Operating Sys
+These are a few examples of what I have learned over the last years during my education journey at SNHU.
 
 
 Completing my Computer Science degree at SNHU gave me a lot of experience and skills that I will need in my future career as a Software developer. Not just gave me knowledge but taught me how to continually learn and seek new skills and challenges.
@@ -159,3 +165,10 @@ The original application was developed to save data into a text file and that is
 4. Used SQL parameters to pass values to SQL queries to avoid SQL injection.
 5. Created search, update, add features to Admin and Zookeeper forms.
 
+<img src="Newlogin.png">
+
+<img src="admin.PNG">
+
+<img src="zookeeper.PNG">
+
+<img src="add animals.PNG">
