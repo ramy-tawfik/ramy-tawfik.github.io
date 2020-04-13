@@ -9,7 +9,8 @@ I have learned many important concepts and skills in the Computer Science progra
 -  DAT-220 Fundamentals of Data Mining,
 -  IT-390 Mobile Apps Design & Develop,
 -  CS-330 J2330 Comp Graphic and Visualization,
--  IT-255 Intro to Linux Operating Sys
+-  IT-255 Intro to Linux Operating Sys.
+
 These are a few examples of what I have learned over the last years during my education journey at SNHU.
 
 
