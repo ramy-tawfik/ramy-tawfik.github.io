@@ -31,7 +31,7 @@ namespace Zoo_Management_System
             userLabel.Text = loggedUser.FirstName + " " + loggedUser.LastName;
             timeLabel.Text = DateTime.Now.ToString();
             // Fill animal class comboBox with animalClas enum Values
-            foreach (var item in Enum.GetValues(typeof(animalClass)))
+            foreach (var item in Enum.GetValues(typeof(AnimalClass)))
             {
                 ClassComboBox.Items.Add(item.ToString());
                 classAddCB.Items.Add(item.ToString());
@@ -91,7 +91,7 @@ namespace Zoo_Management_System
                    && (item.Species.ToString().Equals(speciesGroup) || speciesGroup.Equals("All"))
                    )
                 {
-                    dataGridView1.Rows.Add(item.animalID, item.AnimalClass, item.AnimalName, item.Species, item.Gender, item.LastFeed, item.Status);
+                    dataGridView1.Rows.Add(item.AnimalID, item.AnimalClass, item.AnimalName, item.Species, item.Gender, item.LastFeed, item.Status);
                 }
             }
         }
@@ -278,7 +278,7 @@ namespace Zoo_Management_System
                 Animal updatedAnimal = new Animal();
                 foreach (Animal item in animalList)
                 {
-                    if (item.animalID == Int16.Parse(value1))
+                    if (item.AnimalID == Int16.Parse(value1))
                     {
                         updatedAnimal = item;
                         break;
@@ -316,11 +316,11 @@ namespace Zoo_Management_System
             if (ValidateAddAnimal())
             {
                 Animal animal = new Animal();
-                animal.animalID = tempID;
+                animal.AnimalID = tempID;
                 tempID++;
                 animal.AnimalName = animalNameAddTB.Text;
-                animal.AnimalClass = (animalClass)Enum.Parse(typeof(animalClass), classAddCB.SelectedItem.ToString());
-                animal.Status = (animalStatus)Enum.Parse(typeof(animalStatus), Regex.Replace(statusAddCB.SelectedItem.ToString(), @"\s", ""));
+                animal.AnimalClass = (AnimalClass)Enum.Parse(typeof(AnimalClass), classAddCB.SelectedItem.ToString());
+                animal.Status = (AnimalStatus)Enum.Parse(typeof(AnimalStatus), Regex.Replace(statusAddCB.SelectedItem.ToString(), @"\s", ""));
                 if (speciesAddCB.SelectedItem.Equals("New"))
                 {
                     animal.Species = newSpeciesTB.Text;
@@ -332,7 +332,7 @@ namespace Zoo_Management_System
                 animal.LastFeed = lastFeedDTPicker.Value;
                 animal.Gender = genderAddCB.SelectedItem.ToString();
                 addedAnimalList.Add(animal);
-                addAnimalGridView.Rows.Add(animal.animalID, animal.AnimalClass, animal.AnimalName, animal.Species, animal.Gender, animal.LastFeed, animal.Status);
+                addAnimalGridView.Rows.Add(animal.AnimalID, animal.AnimalClass, animal.AnimalName, animal.Species, animal.Gender, animal.LastFeed, animal.Status);
                 animalNameAddTB.Text = "";
             }
             else
@@ -495,7 +495,7 @@ namespace Zoo_Management_System
                 {
                     foreach (Animal item in addedAnimalList)
                     {
-                        if (item.animalID == Convert.ToInt32(addAnimalGridView.Rows[e.RowIndex].Cells[0].Value))
+                        if (item.AnimalID == Convert.ToInt32(addAnimalGridView.Rows[e.RowIndex].Cells[0].Value))
                         {
                             index = addedAnimalList.IndexOf(item);
                             break;

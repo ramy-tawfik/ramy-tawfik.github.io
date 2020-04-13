@@ -15,14 +15,14 @@ namespace Zoo_Managment_System
         {
             InitializeComponent();
 
-            animalID = selectedAnimal.animalID;
+            animalID = selectedAnimal.AnimalID;
             // Populate class combo box items
-            foreach (var item in Enum.GetValues(typeof(animalClass)))
+            foreach (var item in Enum.GetValues(typeof(AnimalClass)))
             {
                 classComboBox.Items.Add(item.ToString());
             }
             // Populate status combo box items
-            foreach (var item in Enum.GetValues(typeof(animalStatus)))
+            foreach (var item in Enum.GetValues(typeof(AnimalStatus)))
             {
                 statusComboBox.Items.Add(item.ToString());
             }

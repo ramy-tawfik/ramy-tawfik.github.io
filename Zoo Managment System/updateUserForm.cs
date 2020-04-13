@@ -13,7 +13,7 @@ namespace Zoo_Management_System
         {
             InitializeComponent();
             userID = user.userID;
-            foreach (var item in Enum.GetValues(typeof(userRole)))
+            foreach (var item in Enum.GetValues(typeof(UserRole)))
             {
                 roleCB.Items.Add(item.ToString());
             }

@@ -21,7 +21,7 @@ namespace Zoo_Management_System
         {
             InitializeComponent();
             this.loggeduser = user;
-            userLabel.Text = user.displayName().ToUpper();
+            userLabel.Text = user.DisplayName().ToUpper();
             timeLabel.Text = DateTime.Today.ToString();
             tabcontrol.SelectedTab = userTab; // set defaults
         }
@@ -93,10 +93,10 @@ namespace Zoo_Management_System
                     user.LastName = mdr.GetString("Last_Name");
                     user.Username = mdr.GetString("Username");
                     if (mdr.GetString("Role").Equals("Admin"))
-                        user.Role = userRole.Admin;
+                        user.Role = UserRole.Admin;
                     else
                     {
-                        user.Role = userRole.ZooKeeper;
+                        user.Role = UserRole.ZooKeeper;
                     }
                     userList.Add(user);
                 }
@@ -122,19 +122,19 @@ namespace Zoo_Management_System
             {
                 switch (item.AnimalClass)
                 {
-                    case animalClass.Amphibian:
+                    case AnimalClass.Amphibian:
                         ampCount++;
                         break;
 
-                    case animalClass.Bird:
+                    case AnimalClass.Bird:
                         birdCount++;
                         break;
 
-                    case animalClass.Mammal:
+                    case AnimalClass.Mammal:
                         mamalCount++;
                         break;
 
-                    case animalClass.Reptile:
+                    case AnimalClass.Reptile:
                         reptileCount++;
                         break;
 
@@ -144,31 +144,31 @@ namespace Zoo_Management_System
                 // count animal by status
                 switch (item.Status)
                 {
-                    case animalStatus.Normal:
+                    case AnimalStatus.Normal:
                         NormalCount++;
                         break;
 
-                    case animalStatus.ExtinctInTheWild:
+                    case AnimalStatus.ExtinctInTheWild:
                         ExtinctCount++;
                         break;
 
-                    case animalStatus.Vulnerable:
+                    case AnimalStatus.Vulnerable:
                         VulnerableCount++;
                         break;
 
-                    case animalStatus.NearThreatened:
+                    case AnimalStatus.NearThreatened:
                         NearThreatCount++;
                         break;
 
-                    case animalStatus.Endangered:
+                    case AnimalStatus.Endangered:
                         EndangeredCount++;
                         break;
 
-                    case animalStatus.LeastConcern:
+                    case AnimalStatus.LeastConcern:
                         LeastConcernCount++;
                         break;
 
-                    case animalStatus.CriticallyEndangered:
+                    case AnimalStatus.CriticallyEndangered:
                         CriticallyCount++;
                         break;
 
@@ -209,11 +209,11 @@ namespace Zoo_Management_System
             int admins = 0, zooKeepers = 0;
             foreach (User item in userList)
             {
-                if (item.Role == userRole.Admin)
+                if (item.Role == UserRole.Admin)
                 {
                     admins += 1;
                 }
-                else if (item.Role == userRole.ZooKeeper)
+                else if (item.Role == UserRole.ZooKeeper)
                 {
                     zooKeepers += 1;
                 }

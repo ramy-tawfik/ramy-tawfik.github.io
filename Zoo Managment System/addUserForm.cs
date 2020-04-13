@@ -38,11 +38,11 @@ namespace Zoo_Management_System
                 addedUser.LastName = lNameTB.Text;
                 if (roleCB.SelectedItem.ToString().Equals("Admin"))
                 {
-                    addedUser.Role = userRole.Admin;
+                    addedUser.Role = UserRole.Admin;
                 }
                 else if (roleCB.SelectedItem.Equals("ZooKeeper"))
                 {
-                    addedUser.Role = userRole.ZooKeeper;
+                    addedUser.Role = UserRole.ZooKeeper;
                 }
 
                 string connetionString = null;

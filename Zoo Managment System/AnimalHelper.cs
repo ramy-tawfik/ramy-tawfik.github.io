@@ -28,24 +28,24 @@ namespace Zoo_Managment_System
                 while (mdr.Read())
                 {
                     Animal animal = new Animal();
-                    animal.animalID = mdr.GetInt16("ID");
+                    animal.AnimalID = mdr.GetInt16("ID");
                     // set animal class
                     switch (mdr.GetString("Class"))
                     {
                         case "Amphibian":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Amphibian;
+                            animal.AnimalClass = Zoo_Management_System.AnimalClass.Amphibian;
                             break;
 
                         case "Bird":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Bird;
+                            animal.AnimalClass = Zoo_Management_System.AnimalClass.Bird;
                             break;
 
                         case "Mammal":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Mammal;
+                            animal.AnimalClass = Zoo_Management_System.AnimalClass.Mammal;
                             break;
 
                         case "Reptile":
-                            animal.AnimalClass = Zoo_Management_System.animalClass.Reptile;
+                            animal.AnimalClass = Zoo_Management_System.AnimalClass.Reptile;
                             break;
 
                         default:
@@ -55,31 +55,31 @@ namespace Zoo_Managment_System
                     switch (mdr.GetString("Status"))
                     {
                         case "Normal":
-                            animal.Status = animalStatus.Normal;
+                            animal.Status = AnimalStatus.Normal;
                             break;
 
                         case "Extinct In The Wild":
-                            animal.Status = animalStatus.ExtinctInTheWild;
+                            animal.Status = AnimalStatus.ExtinctInTheWild;
                             break;
 
                         case "Vulnerable":
-                            animal.Status = animalStatus.Vulnerable;
+                            animal.Status = AnimalStatus.Vulnerable;
                             break;
 
                         case "Near Threatened":
-                            animal.Status = animalStatus.NearThreatened;
+                            animal.Status = AnimalStatus.NearThreatened;
                             break;
 
                         case "Endangered":
-                            animal.Status = animalStatus.Endangered;
+                            animal.Status = AnimalStatus.Endangered;
                             break;
 
                         case "Least Concern":
-                            animal.Status = animalStatus.LeastConcern;
+                            animal.Status = AnimalStatus.LeastConcern;
                             break;
 
                         case "Critically Endangered":
-                            animal.Status = animalStatus.CriticallyEndangered;
+                            animal.Status = AnimalStatus.CriticallyEndangered;
                             break;
 
                         default:

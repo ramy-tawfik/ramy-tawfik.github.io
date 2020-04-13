@@ -71,11 +71,11 @@ namespace Zoo_Management_System
                             user.LastName = reader.GetString("Last_Name");
                             if (reader.GetString("Role").Equals("Admin"))
                             {
-                                user.Role = userRole.Admin;
+                                user.Role = UserRole.Admin;
                             }
                             else
                             {
-                                user.Role = userRole.ZooKeeper;
+                                user.Role = UserRole.ZooKeeper;
                             }
 
                             openUserForm(user);
@@ -111,14 +111,14 @@ namespace Zoo_Management_System
         // open Administrator Form and pass the logged in user object
         private void openUserForm(User user)
         {
-            if (user.Role == userRole.Admin)
+            if (user.Role == UserRole.Admin)
             {
                 administratorForm adminForm = new administratorForm(user);
                 this.Hide();
                 //adminForm.Show();
                 adminForm.ShowDialog();
             }
-            else if (user.Role == userRole.ZooKeeper)
+            else if (user.Role == UserRole.ZooKeeper)
             {
                 ZooKeeperForm zooKeeperForm = new ZooKeeperForm(user);
                 this.Hide();
