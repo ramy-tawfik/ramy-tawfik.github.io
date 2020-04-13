@@ -465,6 +465,7 @@ namespace Zoo_Management_System
                 // update the initial array list that used for populate animal data in the main view
                 // to show the newly added data
                 animalList = AnimalHelper.GetAnimalList();
+                addedAnimalList.Clear();
             }
             // if no animals added to Queue
             else if (ValidateAddAnimal())
